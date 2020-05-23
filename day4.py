@@ -30,15 +30,15 @@ convert_decimal_to_binary(100)
 # Calculator -
 # A simple calculator to do basic operators. Make it a scientific calculator for added complexity.
 
-def calc(a,b,op):
-    if op=='+':
-        print('result of addition', a+b)
-    elif op=='-':
-        print('result of subtraction', a-b)
-    elif op=='*':
-        print('result of multiplication', a*b)
-    elif op=='/':
-        print('result of division', a/b)
+def calc(a, b, op):
+    if op == '+':
+        print('result of addition', a + b)
+    elif op == '-':
+        print('result of subtraction', a - b)
+    elif op == '*':
+        print('result of multiplication', a * b)
+    elif op == '/':
+        print('result of division', a / b)
     else:
         print('wrong input')
 
