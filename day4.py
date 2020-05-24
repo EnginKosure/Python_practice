@@ -27,7 +27,8 @@ convert_decimal_to_binary(9)
 convert_decimal_to_binary(100)
 
 
-# convert binary to decimal
+# convert decimal to binary, method 2
+# sum(d * 10**i for i, d in enumerate(list[::-1]))
 
 def decimal_to_binary_2(num):
     bin = []
@@ -43,6 +44,40 @@ def decimal_to_binary_2(num):
 
 decimal_to_binary_2(100)  # 1100100
 
+# converter: convert binary to decimal
+'''
+Example -: 1011
+1). Take modulo of given binary number with 10. 
+    (1011 % 10 = 1)
+2). Multiply rem with 2 raised to the power
+    it's position from right end. 
+    (1 * 2^0)
+    Note that we start counting position with 0. 
+3). Add result with previously generated result.
+    decimal = decimal + (1 * 2^0)
+4). Update binary number by dividing it by 10.
+    (1011 / 10 = 101)
+5). Keep repeating upper steps till binary > 0.
+
+Final Conversion -: (1 * 2^3) + (0 * 2^2) +
+                 (1 * 2^1) + (1 * 2^0) = 11
+# sum(d * 10**i for i, d in enumerate(list[::-1]))
+
+'''
+
+
+def binary_to_decimal(num):
+    i = 0
+    decimal = 0
+    while num:
+        digit = num % 10
+        decimal += digit * 2 ** i
+        i += 1
+        num = int(num/10)
+    print(decimal)
+
+
+binary_to_decimal(1001)
 
 # Calculator -
 # A simple calculator to do basic operators. Make it a scientific calculator for added complexity.
