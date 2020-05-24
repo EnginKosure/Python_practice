@@ -27,6 +27,25 @@ convert_decimal_to_binary(9)
 convert_decimal_to_binary(100)
 
 
+# convert binary to decimal
+
+def decimal_to_binary_2(num):
+    i = 0
+    bin = []
+    while num:
+        digit = num % 2
+        num = int(num / 2)
+        i += 1
+        # print(digit, i)
+        bin.append(digit)
+    bin.reverse()
+    print(bin)
+    print(int(''.join(map(str, bin))))
+
+
+decimal_to_binary_2(100)  # 1100100
+
+
 # Calculator -
 # A simple calculator to do basic operators. Make it a scientific calculator for added complexity.
 
