@@ -30,13 +30,11 @@ convert_decimal_to_binary(100)
 # convert binary to decimal
 
 def decimal_to_binary_2(num):
-    i = 0
     bin = []
     while num:
         digit = num % 2
         num = int(num / 2)
-        i += 1
-        # print(digit, i)
+        # print(digit)
         bin.append(digit)
     bin.reverse()
     print(bin)
