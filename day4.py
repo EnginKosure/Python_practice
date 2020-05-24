@@ -73,8 +73,8 @@ def binary_to_decimal(num):
         digit = num % 10
         decimal += digit * 2 ** i
         i += 1
-        num = int(num / 10)
-    print(decimal)
+        num = num // 10
+        print(decimal)
 
 
 binary_to_decimal(1001)
@@ -82,6 +82,7 @@ binary_to_decimal(1001)
 
 # Calculator -
 # A simple calculator to do basic operators. Make it a scientific calculator for added complexity.
+
 
 def calc(a, b, op):
     if op == '+':
