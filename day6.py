@@ -28,9 +28,9 @@ collatz(48)
 
 # free fall calculation
 gravity = 9.8
-d = float(input('height in meters: '))
+d = float(input('Enter the height in meters: '))
 vf = sqrt(2 * gravity * d)
-print(f'it will hit the ground with {vf}m/s')
+print(f'It will hit the ground with {vf}m/s')
 
 if __name__ == '__main__':
     input1 = int(input('enter base: '))
