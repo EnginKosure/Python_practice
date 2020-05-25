@@ -23,8 +23,8 @@ print(temps[input1](input2))
 
 
 def flip():
-    flip = random()
-    if flip >= .5:
+    flip1 = random()
+    if flip1 >= .5:
         return True
     else:
         return False
