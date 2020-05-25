@@ -1,3 +1,6 @@
+from math import sqrt
+
+
 # Fast Exponentiation -
 # Ask the user to enter 2 integers a and b and output a^b (i.e. pow(a,b)) in O(lg n) time complexity.
 
@@ -22,6 +25,12 @@ def collatz(n):
 
 
 collatz(48)
+
+# free fall calculation
+gravity = 9.8
+d = float(input('height in meters: '))
+vf = sqrt(2 * gravity * d)
+print(f'it will hit the ground with {vf}m/s')
 
 if __name__ == '__main__':
     input1 = int(input('enter base: '))
