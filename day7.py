@@ -11,6 +11,15 @@ if __name__ == '__main__':
         f'{(seconds / seconds_in_a_day)} days or {(seconds / seconds_per_hour)} hours or \
 {(seconds / seconds_per_minute)} minutes')
 
+# seconds to time-2
+seconds1 = int(input('enter number of seconds (for v2): '))
+
+m, s = divmod(seconds1, 60)
+h, m = divmod(m, 60)
+d, h = divmod(h, 24)
+
+print(f'{d:d}:{h:02d}:{m:02d}:{s:02d}')
+
 
 # leap year
 def is_leap_year(x):
