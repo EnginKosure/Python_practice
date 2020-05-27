@@ -1,7 +1,7 @@
 # Caesar cipher
 
-message = input('enter the message: ')
-shift = int(input('enter the key: '))
+message = input('Enter the message: ')
+shift = int(input('Enter the key: '))
 
 new_message = ''
 
@@ -48,6 +48,6 @@ for i in range(len(line) // 2):
         is_palindrome = False
 
 if is_palindrome:
-    print(line, 'is palindrome')
+    print(line, 'is a palindrome')
 else:
     print(line, 'is not a palindrome')
