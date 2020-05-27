@@ -20,7 +20,6 @@ for ch in message:
         new_message += ch
 print('The shifted message is', new_message)
 
-
 # print(ord('a'), ord('z'), ord('A'), ord('Z'))  # 97 122 65 90
 
 decrypted = ''
@@ -37,4 +36,4 @@ for i in new_message:
         decrypted += new_i
     else:
         decrypted += i
-print('decrypted', decrypted)
+print('Decrypted version is:', decrypted)
