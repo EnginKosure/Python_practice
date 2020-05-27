@@ -37,3 +37,17 @@ for i in new_message:
     else:
         decrypted += i
 print('Decrypted version is:', decrypted)
+
+# Palindrome
+line = input('Enter a string to check if palindrome: ')
+
+is_palindrome = True
+
+for i in range(len(line) // 2):
+    if line[i] != line[len(line) - i - 1]:
+        is_palindrome = False
+
+if is_palindrome:
+    print(line, 'is palindrome')
+else:
+    print(line, 'is not a palindrome')
