@@ -1,8 +1,7 @@
 # Center a string in terminal
-WIDTH = 80
 
 
-def center(st, w):
+def center(st, w=60):
     if len(st) >= w:
         return st
 
@@ -12,4 +11,5 @@ def center(st, w):
     return result
 
 
-print(center('center this', WIDTH))
+print(center('center this', 80))
+print(center('center that'))
