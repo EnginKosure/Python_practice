@@ -11,5 +11,5 @@ def center(st, w=60):
     return result
 
 
-print(center('center this', 80))
+print(center('center this regards to a given total length, for here, 80', 80))
 print(center('center according to default width 60'))
