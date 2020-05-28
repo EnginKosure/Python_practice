@@ -12,4 +12,4 @@ def center(st, w=60):
 
 
 print(center('center this', 80))
-print(center('center that'))
+print(center('center according to default width 60'))
