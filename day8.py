@@ -51,3 +51,15 @@ if is_palindrome:
     print(line, 'is a palindrome')
 else:
     print(line, 'is not a palindrome')
+
+# Greatest common divisor
+n=int(input('Enter a positive integer: '))
+m=int(input('Enter a positive integer: '))
+
+d=min(n,m)
+
+while n%d!=0 or m%d!=0:
+    d-=1
+
+print(f'The greatest common divisor of {n} and {m} is {d} ')
+
