@@ -13,3 +13,5 @@ data.sort()
 print('The values in ascending order are: ')
 for num in data:
     print(num)
+
+# Remove outliers
