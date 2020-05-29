@@ -8,3 +8,8 @@ while num != 0:
     num = int(input('Enter an integer (0 to quit): '))
 
 data.sort()
+
+# display values in ascending order
+print('The values in ascending order are: ')
+for num in data:
+    print(num)
