@@ -17,7 +17,9 @@ def shuffle(cards):
     for i in range(0, len(cards)):
         ran_pos = randrange(0, len(cards))
 
-        temp, cards[i] = cards[i], cards[ran_pos]
+        temp = cards[i]
+        cards[i] = cards[ran_pos]
+        cards[ran_pos] = temp
 
 
 def main():
