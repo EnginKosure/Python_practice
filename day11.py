@@ -30,5 +30,5 @@ def main():
     print(cards)
 
 
-if __name__='__main__':
+if __name__ == '__main__':
     main()
