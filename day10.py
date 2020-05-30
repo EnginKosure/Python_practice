@@ -14,6 +14,11 @@ print('The values in ascending order are: ')
 for num in data:
     print(num)
 
+print('The values in descending order are: ')
+
+for num in data[::-1]:
+    print(num)
+
 
 # Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 # hashMap usage
