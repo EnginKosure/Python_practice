@@ -9,8 +9,8 @@ while total_cards - 3 * n > 0:
     used_cards += 3 * n
     total_cards -= 3 * n
 
-print('total used', used_cards)
-print('remainder', total_cards)
-print('total layers', n)
-print('roof', used_cards * 2 / 3)
-print('base', used_cards / 3)
+print('total used', used_cards)  # 84
+print('remainder', total_cards)  # 20
+print('total layers', n)  # 7
+print('roof', used_cards * 2 / 3)  # 56
+print('base', used_cards / 3)  # 28
