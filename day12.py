@@ -43,6 +43,7 @@ def token_list(s):
         # Any other chars means the exp. is invalid.
         # Return an empty list to indicate that an error occurred.
         else:
+            print('Next time, please enter only math expressions...')
             return []
     return tokens
 
