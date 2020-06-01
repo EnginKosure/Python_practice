@@ -41,7 +41,7 @@ def token_list(s):
             tokens.append(num)
 
         # Any other chars means the exp. is invalid.
-        # Return an empty list to indicate that an error ocurred.
+        # Return an empty list to indicate that an error occurred.
         else:
             return []
     return tokens
