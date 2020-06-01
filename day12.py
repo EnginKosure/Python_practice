@@ -20,19 +20,28 @@ def token_list(s):
                 tokens.append(s[i])
                 i += 1
             else:
+                # The + or - is part of a number
                 num = s[i]
                 i += 1
+
+                # Keep on adding chars to the token as long as they are digits
                 while i < len(s) and '0' <= s[i] <= '9':
                     num += s[i]
                     i += 1
                 tokens.append(num)
+
+        # Handle a number without a leading + or -
         elif '0' <= s[i] <= '9':
             num = ''
+
+            # Keep on adding chars to the token as long as they are digits
             while i < len(s) and '0' <= s[i] <= '9':
                 num += s[i]
                 i += 1
             tokens.append(num)
 
+        # Any other chars means the exp. is invalid.
+        # Return an empty list to indicate that an error ocurred.
         else:
             return []
     return tokens
