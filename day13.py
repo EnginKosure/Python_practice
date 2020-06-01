@@ -14,3 +14,21 @@ print('remainder', total_cards)  # 20
 print('total layers', n)  # 7
 print('roof', used_cards * 2 / 3)  # 56
 print('base', used_cards / 3)  # 28
+
+
+def res(tot, m=0, used=0):
+    if tot - 3 * m > 0:
+        m += 1
+        tot -= 3 * m
+        used += 3 * m
+        print(m, used, tot)
+        return res(tot, m, used)
+    else:
+        print("layers", m)
+        print('used', used)
+        print("remained", tot)
+        print('for roofs', used * 2 / 3)
+        print('for bases', used / 3)
+
+
+print(res(104))
