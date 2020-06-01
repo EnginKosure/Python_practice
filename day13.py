@@ -31,4 +31,4 @@ def res(tot, m=0, used=0):
         print('for bases', used / 3)
 
 
-print(res(104))
+res(104)
