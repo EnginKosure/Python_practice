@@ -14,6 +14,7 @@ def main():
     fr_en = {'le': 'the', 'la': 'the', 'livre': 'book', 'pomme': 'apple'}
 
     print('The French words for "the" are: ', reverse_lookup(fr_en, 'the'))
+    print('The French words for "apple" is: ', reverse_lookup(fr_en, 'apple'))
 
 
 if __name__ == '__main__':
