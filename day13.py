@@ -11,7 +11,7 @@ while total_cards - 3 * n > 0:
 
 print('total used', used_cards)  # 84
 print('remainder', total_cards)  # 20
-print('total layers', n)  # 7
+print('total layers', n)         # 7
 print('roof', used_cards * 2 / 3)  # 56
 print('base', used_cards / 3)  # 28
 
@@ -30,5 +30,5 @@ def res(tot, m=0, used=0):
         print('for roofs', used * 2 / 3)
         print('for bases', used / 3)
 
-
 res(104)
+
