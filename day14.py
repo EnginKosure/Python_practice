@@ -1,6 +1,4 @@
 # Reverse lookup
-
-
 def reverse_lookup(data, value):
     keys = []
 
