@@ -2,6 +2,9 @@ from random import randint
 # list comprehension review
 words = ['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']
 # stuff = [[w.upper(), w.lower(), len(w)] for w in words]
+# It can be done also using mapping with lambda
+#stuff = map(lambda w: [w.upper(), w.lower(), len(w)], words)
+
 # for i in stuff:
 #     print(i)
 
