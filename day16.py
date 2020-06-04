@@ -4,8 +4,12 @@ s = input('Enter chars: ')
 
 chars = {}
 for i in s:
-    chars[i] = True
-
+    keys = chars.keys()
+    if i in keys:
+        chars[i] += 1
+    else:
+        chars[i] = 1
+print(chars)
 print('this string contains', len(chars), 'unique chars.')
 print(s)
 print(''.join(chars.keys()))
