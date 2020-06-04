@@ -8,4 +8,4 @@ for i in s:
 
 print('this string contains', len(chars), 'unique chars.')
 print(s)
-print(chars.keys())
+print(''.join(chars.keys()))
