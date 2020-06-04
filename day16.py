@@ -4,8 +4,8 @@ s = input('Enter chars: ')
 
 chars = {}
 for i in s:
-    keys = chars.keys()
-    if i in keys:
+    #keys = chars.keys()
+    if i in chars:
         chars[i] += 1
     else:
         chars[i] = 1
