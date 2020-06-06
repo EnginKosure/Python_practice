@@ -42,3 +42,17 @@ def example_tests():
 
 
 example_tests()
+
+
+# Sum of intervals
+def sum_of_intervals(intervals):
+    result = set()
+    for start, stop in intervals:
+        for x in range(start, stop):
+            result.add(x)
+    print(len(result))
+    return len(result)
+
+
+sum_of_intervals([(1, 4), (7, 10), (3, 5)])  # 7
+sum_of_intervals([(1, 5), (6, 10)])  # 8
