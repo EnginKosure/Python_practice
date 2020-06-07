@@ -82,11 +82,11 @@ def decrypt(message):
 
 
 def main():
-    message = "ENGIN and FAZILET"
+    message = "Make it happen"
     result = encrypt(message.upper())
     print(result)
 
-    message = ". -. --. .. -.  .- -. -..  ..-. .- --.. .. .-.. . - "
+    message = "-- .- -.- .  .. -  .... .- .--. .--. . -. "
     message1 = '... --- -- .  - . -..- - '
     n_message = 'SOME TEXT'
     result = decrypt(message)
