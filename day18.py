@@ -20,6 +20,7 @@ MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
 
 
 def encrypt(message):
+    # 'cipher' ->'stores the morse translated form of the english string'
     cipher = ''
     for letter in message:
         if letter != ' ':
@@ -42,18 +43,19 @@ def encrypt(message):
 
 def decrypt(message):
 
-    # extra space added at the end to access the
-    # last morse code
+    # extra space added at the end to access the last morse code
+    # 'message' -> 'stores the string to be encoded or decoded'
     message += ' '
-
+    # 'decipher' -> 'stores the english translated form of the morse string'
     decipher = ''
+    # 'citext' -> 'stores morse code of a single character'
     citext = ''
     for letter in message:
 
         # checks for space
         if (letter != ' '):
-
             # counter to keep track of space
+            # 'i' -> 'keeps count of the spaces between morse characters'
             i = 0
 
             # storing morse code of a single character
