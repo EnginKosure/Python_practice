@@ -101,3 +101,5 @@ x = ['a', 'b', 'c']
 print(x.index('a'))  # 0
 print(x[0])  # a
 print(x[x.index('a')])  # a
+
+# Adding sth to test a git feature
