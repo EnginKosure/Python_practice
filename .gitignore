@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #gitignore file has been added
+=======
+
+>>>>>>> f76850c9b6bc2fbc94801fee12132daf2f7224ae
 .idea/.gitignore
 .idea/Python_practice.iml
 .idea/inspectionProfiles/profiles_settings.xml
