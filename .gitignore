@@ -1,16 +1,9 @@
-.idea/.gitignore
-.idea/Python_practice.iml
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.vscode/settings.json
-.idea/
-.vscode/
-
 # Default ignored files
 /workspace.xml
 /vcs.xml
 /Python_practice.iml
 /modules.xml
 /misc.xml
+
+.idea/
+.vscode/
