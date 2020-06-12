@@ -1,7 +1,10 @@
-const isRepdigit = num => new Set('' + num).size === 1;
+const isRepdigit = num => new Set('' + num).size === 1 && typeof (num) == 'number';
 console.log(isRepdigit(7777));//true
 console.log(isRepdigit(33));//true
 console.log(isRepdigit(678));//false
+console.log(isRepdigit('aaa'));//false
+console.log(typeof (333))// 'number' 
+
 
 let mySet = new Set()
 
