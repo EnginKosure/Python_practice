@@ -33,4 +33,4 @@ except IOError:
 
 # From terminal, execute like below
 # python day20.py trial.py
-# this code will read inside of the file provided as a second argument.
+# this code will read inside of the file which is provided as a second argument.
