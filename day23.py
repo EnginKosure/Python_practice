@@ -11,9 +11,13 @@ for i in range(1, len(sys.argv)):
 
         # Display the file
         for line in inf:
-            print(line, end='')
+            print(line)
         # close the file
         inf.close()
     except:
         # Display a message but don't quit.
         print('Could not open', f_name)
+
+# From terminal, execute like below
+# python day23.py trial.py day22.py day19.py
+# this code will read inside of the file which is provided as arguments.
