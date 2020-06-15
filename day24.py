@@ -36,3 +36,5 @@ try:
         # Close the files
     in_f.close()
     out_f.close()
+except:
+    print('Error')
