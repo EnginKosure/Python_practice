@@ -2,6 +2,13 @@
 
 # Read and open the input file. Ensure it is opened
 
+try:
+    input_file_name = input("Enter the name of the python file: ")
+    inf = open(input_file_name, 'r')
+except:
+    print('Could not open the input file.')
+    quit()
+
 # Read and open output file. Ensure it is successfull.
 
 
