@@ -34,3 +34,5 @@ try:
         # Write the modified line to the file
         out_f.write(line)
         # Close the files
+    in_f.close()
+    out_f.close()
