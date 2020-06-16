@@ -30,7 +30,7 @@ try:
         # Overwrite the line.
         if pos > -1:
             line = line[0:pos]
-            line = line+'\n'
+            line += '\n'
         # Write the modified line to the file
         out_f.write(line)
         # Close the files
