@@ -16,7 +16,7 @@ while control_variable:
 
     if age.lower()[0] != 'y' and age.lower()[0] != 'n' or chronic.lower()[0] != 'y' and chronic.lower()[0] != 'n' or immune.lower()[0] != 'y' and immune.lower()[0] != 'n':
         print('You have entered irrelevant information!')
-        print('Please only answer with y or n')
+        print('Please only answer with "y" or "n"')
     else:
         control_variable = False
 
