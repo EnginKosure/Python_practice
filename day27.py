@@ -19,6 +19,12 @@ while control_variable:
         print('Please only answer with "y" or "n"')
     else:
         control_variable = False
+    # if (age.lower()[0] == 'y' or age.lower()[0] == 'n') and (chronic.lower()[0] == 'y' or chronic.lower()[0] == 'n') and (immune.lower()[0] == 'y' or immune.lower()[0] == 'n'):
+    #     control_variable = False
+
+    # else:
+    #     print('You have entered irrelevant information!')
+    #     print('Please only answer with "y" or "n"')
 
 
 def covid_risk(a, c, i):
