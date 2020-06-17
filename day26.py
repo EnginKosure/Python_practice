@@ -4,7 +4,7 @@
 
 from random import randrange
 
-word_file = 'day13-copy.py'
+word_file = '/Users/enginkosure/Documents/docs/deneme.txt'
 
 words = []
 inf = open(word_file, 'r')
@@ -12,8 +12,17 @@ inf = open(word_file, 'r')
 for line in inf:
     line = line.rstrip()
 
-    if 3 <= line <= 7:
+    if 3 <= len(line) <= 7:
         words.append(line)
 inf.close()
 
 # Randomly select the first word.
+first = words[randrange(0, len(words))]
+first = first.capitalize()
+
+password = first
+
+while len(password) < 8 or len(password) > 10:
+    second = words[randrange(0, len(words))].capitalize()
+    password = first+second
+print('The random password is', password)
