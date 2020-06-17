@@ -13,7 +13,7 @@ while control_variable:
     chronic = input("Do you have a severe chronic disease? ('y' or 'n'): ")
 
     immune = input("Is your immune system too weak? ('y' or 'n'): ")
-    # to prevent the error if there is no keystroke
+    # to prevent the error in case there is no keystroke
     if age == '' or chronic == '' or immune == '':
         print('You have entered no information at least once!')
         print('Please only answer with "y" or "n"')
