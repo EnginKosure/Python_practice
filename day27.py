@@ -13,6 +13,10 @@ while control_variable:
     chronic = input("Do you have a severe chronic disease? ('y' or 'n'): ")
 
     immune = input("Is your immune system too weak? ('y' or 'n'): ")
+    if age == '' or chronic == '' or immune == '':
+        print('You have entered no information!')
+        print('Please only answer with "y" or "n"')
+        continue
 
     if age.lower()[0] != 'y' and age.lower()[0] != 'n' or chronic.lower()[0] != 'y' and chronic.lower()[0] != 'n' or immune.lower()[0] != 'y' and immune.lower()[0] != 'n':
         print('You have entered irrelevant information!')
