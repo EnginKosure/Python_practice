@@ -8,8 +8,8 @@ def find_vocals(s):
     for character in s:
         if character in control_string:
             result += character
-
+    # to avoid the repeatings
     return ''.join(set(result))
 
 
-print(find_vocals('Clarusway'))  # aua
+print(find_vocals('Clarusway'))  # au
