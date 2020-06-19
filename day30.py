@@ -21,3 +21,14 @@ convert_to_fahrenheit(celcius)
 # Write a short Python program that asks the user to enter a distance
 # (it can be a decimal number) in kilometers,
 # converts the entered distance into miles and prints the result.
+
+
+def convert_to_miles(km):
+    miles = km*0.6214
+    print('{} {} {:.2f} {}'.format(km, 'km equals to', miles, 'miles'))
+    return miles
+
+
+kms = float(input('Enter the distance in km: '))
+
+convert_to_miles(kms)
