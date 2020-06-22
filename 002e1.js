@@ -21,3 +21,19 @@ function formatPercentage(arr) {
     return newFormatted;
 }
 console.log(formatPercentage([2, 50, 102, 30, 2.4567, 1.005])); //[ '2%', '50%', '100%', '30%' ]
+console.log(formatPercentage([2, 50, 102, 30, 67.0034]));
+
+function formatPercentage1(arr) {
+
+    for (let i = 0; i < arr.length; i++) {
+
+        if (arr[i] > 100) {
+            arr[i] = 100;
+        } else {
+            arr[i] = Math.round(arr[i] * 100) / 100;
+        }
+        arr[i] += "%";
+    }
+    return arr;
+}
+console.log(formatPercentage1([2, 50, 102, 30, 67.0034]));
