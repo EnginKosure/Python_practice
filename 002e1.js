@@ -8,17 +8,14 @@
 
 function formatPercentage(arr) {
     let newFormatted = [];
-    let formatStringNumbers = arr.toString().split(",").toFixed(2);
-
+    let formatStringNumbers = arr.map(x => Math.round((x + Number.EPSILON) * 100) / 100).toString().split(",");
     for (let i = 0; i < formatStringNumbers.length; i++) {
         if (formatStringNumbers[i] > 100) {
-            formatStringNumbers[i] = formatStringNumbers[100];
+            newFormatted.push('100%')
         } else {
-            newFormatted = formatStringNumber.push(newFormatted);
-            return newFormatted;
-            console.log(newFormatted);
+            newFormatted.push(formatStringNumbers[i] + '%');
         }
     }
-    console.log(newFormatted);
+    return newFormatted;
 }
-console.log(formatPercentage([2, 50, 102, 30]));
+console.log(formatPercentage([2, 50, 102, 30])); //[ '2%', '50%', '100%', '30%' ]
