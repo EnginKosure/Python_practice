@@ -7,6 +7,8 @@
 
 
 function formatPercentage(arr) {
+    console.log(arr.toString());
+
     let newFormatted = [];
     let formatStringNumbers = arr.map(x => Math.round((x + Number.EPSILON) * 100) / 100).toString().split(",");
     for (let i = 0; i < formatStringNumbers.length; i++) {
@@ -18,4 +20,4 @@ function formatPercentage(arr) {
     }
     return newFormatted;
 }
-console.log(formatPercentage([2, 50, 102, 30])); //[ '2%', '50%', '100%', '30%' ]
+console.log(formatPercentage([2, 50, 102, 30, 2.4567, 1.005])); //[ '2%', '50%', '100%', '30%' ]
