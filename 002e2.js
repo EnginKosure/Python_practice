@@ -30,9 +30,9 @@ function sortAges(arr) {
             }
             if (arr[i] > arr[i + 1]) {
                 done = false;
-                let tmp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = tmp;
+                // let tmp = arr[i];
+                [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+                // arr[i + 1] = tmp;
             }
         }
     }
