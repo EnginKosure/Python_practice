@@ -40,7 +40,7 @@ function sortAges(arr) {
     return arr;
 }
 
-sortAges(['something', 55, 0, 3, 2, 13, 4, '23', 'integer', 1, 7, 3])//[ 0, 2, 3, 4, 13, 55 ]
+sortAges(['something', 55, 0, 3, 2, 13, 4, '23', 'integer', 1, 7, 3])//[ 0, 1, 2, 3, 3, 4, 7, 13, 55 ]
 
 // var arr = [1, 2, 3, 4, 5, 5, 6, 7, 8, 5, 9, 0];
 // for (var i = 0; i < arr.length; i++) {
