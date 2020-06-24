@@ -6,6 +6,7 @@ B, k, C, E = [], 0, [], []
 for i, n in enumerate(A):
     if n.isdigit():
         B.append((A[k:i+1], A[k:i+1].count('?'), int(A[k])+int(A[i])))
+        print(B)
         k = i
 for i in B:
     if i[2] == 10:
