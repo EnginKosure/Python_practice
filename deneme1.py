@@ -19,3 +19,5 @@ print(presidents)
 old = {"Emma": 71, "Jack": 89, "Amy": 15, "Ben": 29}
 print(max(old, key=old.get))
 print(min(old))
+
+set()
