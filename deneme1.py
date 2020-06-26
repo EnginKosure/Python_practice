@@ -14,3 +14,8 @@ presidents = ['Barrack', 'George', 'Bill',
               'Ronald', 'Jimmy', 'Gerald', 'Richard']
 presidents[3:3] = ['George']
 print(presidents)
+
+
+old = {"Emma": 71, "Jack": 89, "Amy": 15, "Ben": 29}
+print(max(old, key=old.get))
+print(max(old, key=old.setdefault))
