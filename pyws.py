@@ -1,29 +1,28 @@
-import math
+B = 131
+A = str(B)
+left, right, contrl = [], [], ''
 
 
-def is_prime(num):
-    if num >= 2:
-        i = 2
-        while i <= math.sqrt(num):
-            if num % i == 0:
-                i += 1
-
-                return False
-            else:
-                return True
+def prime(num):
+    K = sum([1 for j in range(2, int(num**(1/2))+1) if num % j == 0])
+    if K == 0:
+        return True
     else:
         return False
 
 
-def truncatable(num):
-    right = sum([1 for i in range(1, len(str(num))+1)
-                 if is_prime(int(str(num)[:i]))]) == len(str(num))
-    left = sum([1 for i in range(len(str(num))) if is_prime(
-        int(str(num)[i:]))]) == len(str(num))
-    if "0" in str(num):
-        return False
+if '0' in A:
+    print('False')
+else:
+    for i in range(len(str(A))):
+        if prime(int(A[0:i+1])) == False or int(A[0:i+1]) == 1:
+            break
     else:
-        return "both"*left*right or "right"*right or "left"*left or False
-
-
-truncatable(62383)
+        contrl += 'right'
+    for i in range(1, len(str(A))+1):
+        if prime(int(A[-i:])) == False or int(A[-i:]) == 1:
+            break
+    else:
+        contrl += 'left'
+    print('both' * (len(contrl) > 5) or 'False' * (len(contrl) == 0) or 'left' * (len(contrl) == 4) or 'right' * (len(contrl)
+                                                                                                                  == 5))
