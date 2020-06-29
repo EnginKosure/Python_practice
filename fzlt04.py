@@ -17,3 +17,11 @@ a = [[1, 2, 3, 2, 1, 1],
 
 can_see_stage(a)
 print(can_see_stage(a))
+
+
+def can_see_stage(s):
+    for i in range(len(s[0])):
+        for j in range(1, len(s)):
+            if s[j][i] <= s[j-1][i]:
+                return(False)
+    return(True)
