@@ -20,7 +20,9 @@ print(can_see_stage(a))
 
 
 def can_see_stage(s):
+    # i loops columns
     for i in range(len(s[0])):
+        # j loops rows
         for j in range(1, len(s)):
             if s[j][i] <= s[j-1][i]:
                 return(False)
