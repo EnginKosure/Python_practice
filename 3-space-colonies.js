@@ -22,10 +22,14 @@
 
 // }
 
+// function colonisers(item) {
+//   let newColonisers = [];
+//   item.map(x => x.includes('family') && x[0] == 'A' ? newColonisers.push(x) : console.log(`${x}, Go in search for a new planet`));
+//   return newColonisers;
+// }
+
 function colonisers(item) {
-  let newColonisers = [];
-  item.map(x => x.includes('family') && x[0] == 'A' ? newColonisers.push(x) : console.log(`${x}, Go in search for a new planet`));
-  return newColonisers;
+  return item.filter(x => x.includes('family') && x[0] == 'A');
 }
 
 //console.log(newColonisers);

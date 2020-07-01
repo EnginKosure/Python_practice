@@ -9,11 +9,11 @@
 
   Use the tests to confirm which message to return
 */
-let bushBerryColours1 = ["pink", "pink", "pink", "neon", "pink", "transparent"];
-let bushBerryColours2 = ["pink", "pink", "pink", "pink"];
+// let bushBerryColours1 = ["pink", "pink", "pink", "neon", "pink", "transparent"];
+// let bushBerryColours2 = ["pink", "pink", "pink", "pink"];
 
 function bushChecker(berry) {
-  if (berry.some(color => color !== "pink")) {
+  if (berry.some(x => x !== "pink")) {
     return "Toxic! Leave bush alone!";
   } else {
     return "Bush is safe to eat from";
@@ -28,17 +28,17 @@ function bushChecker(berry) {
 //     return "Toxic! Leave bush alone!";
 //   }
 // }
-bushChecker(bushBerryColours1);
-console.log(bushChecker(bushBerryColours1));
-console.log(bushChecker(bushBerryColours2));
+// bushChecker(bushBerryColours1);
+// console.log(bushChecker(bushBerryColours1));
+// console.log(bushChecker(bushBerryColours2));
 
 
 
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
-// let bushBerryColours1 = ["pink", "pink", "pink", "neon", "pink", "transparent"]
-// let bushBerryColours2 = ["pink", "pink", "pink", "pink"]
+let bushBerryColours1 = ["pink", "pink", "pink", "neon", "pink", "transparent"]
+let bushBerryColours2 = ["pink", "pink", "pink", "pink"]
 
 function test(test_name, expr) {
   let status;
