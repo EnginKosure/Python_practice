@@ -7,12 +7,8 @@
   NOTE: only the names should be returned, not the means of transport.
 */
 
-function journeyPlanner(item) {
-  let newArr=[];
-  for(i = 0; i < item.length; i++){
-    
-  }
-
+function journeyPlanner(item, vehicle) {
+  return item.filter(x => x.includes(vehicle)).map(x => x[0])
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== */
@@ -37,14 +33,14 @@ function arraysEqual(a, b) {
 }
 
 function test(test_name, expr) {
-    let status;
-    if (expr) {
-      status = "PASSED";
-    } else {
-      status = "FAILED";
-    }
-  
-    console.log(`${test_name}: ${status}`);
+  let status;
+  if (expr) {
+    status = "PASSED";
+  } else {
+    status = "FAILED";
+  }
+
+  console.log(`${test_name}: ${status}`);
 }
 
 test("journeyPlanner function works - case 1",
