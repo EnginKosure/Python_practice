@@ -9,17 +9,23 @@
 */
 
 
+// function colonisers(item) {
+//   let newColonisers = [];
+//   for (let i = 0; i < item.length; i++) {
+//     if (item[i].includes('family') && item[i][0] == 'A') {
+//       newColonisers.push(item[i]);
+//     } else {
+//       console.log(`${item[i]}, Go in search for a new planet`);
+//     }
+//   }
+//   return newColonisers;
+
+// }
+
 function colonisers(item) {
   let newColonisers = [];
-  for (let i = 0; i < item.length; i++) {
-    if (item[i].includes('family') && item[i][0] == 'A') {
-      newColonisers.push(item[i]);
-    } else {
-      console.log(`${item[i]}, Go in search for a new planet`);
-    }
-  }
+  item.map(x => x.includes('family') && x[0] == 'A' ? newColonisers.push(x) : console.log(`${x}, Go in search for a new planet`));
   return newColonisers;
-
 }
 
 //console.log(newColonisers);
