@@ -32,6 +32,8 @@ function colonisers(item) {
   return item.filter(x => x.includes('family') && x[0] == 'A');
 }
 
+
+
 //console.log(newColonisers);
 
 const voy = [
