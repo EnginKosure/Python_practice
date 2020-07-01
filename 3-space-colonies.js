@@ -7,25 +7,24 @@
 
   NOTE: don't include any element that is not a "family".
 */
- 
+
 
 function colonisers(item) {
-  let newColonisers=[];
-  
-  if(item.includes("family")){
-    newColonisers = item.filter("A");
-    //console.log(newColonisers);
-    return newColonisers;
-  } else{
-    return "Go in search for a new planet";
+  let newColonisers = [];
+  for (let i = 0; i < item.length; i++) {
+    if (item[i].includes('family') && item[i][0] == 'A') {
+      newColonisers.push(item[i]);
+    } else {
+      console.log(`${item[i]}, Go in search for a new planet`);
+    }
   }
-  //console.log(newColonisers);
-}
-colonisers(voyagers);
-console.log(colonisers);
-/* ======= TESTS - DO NOT MODIFY ===== */
+  return newColonisers;
 
- const voyagers = [
+}
+
+//console.log(newColonisers);
+
+const voy = [
   "Adam family",
   "Potter family",
   "Eric",
@@ -38,7 +37,25 @@ console.log(colonisers);
   "Oscar family",
   "Avery family",
   "Archer family"
-]; 
+];
+// colonisers(voy);
+console.log(colonisers(voy));
+/* ======= TESTS - DO NOT MODIFY ===== */
+
+const voyagers = [
+  "Adam family",
+  "Potter family",
+  "Eric",
+  "Aldous",
+  "Button family",
+  "Jude",
+  "Carmichael",
+  "Bunny",
+  "Asimov",
+  "Oscar family",
+  "Avery family",
+  "Archer family"
+];
 
 function arraysEqual(a, b) {
   if (a === b) return true;
