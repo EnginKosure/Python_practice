@@ -19,6 +19,15 @@ function bushChecker(berry) {
     return "Bush is safe to eat from";
   }
 }
+
+// function bushChecker(berry) {
+//   if (berry.every(color => color
+//     == "pink")) {
+//     return "Bush is safe to eat from";
+//   } else {
+//     return "Toxic! Leave bush alone!";
+//   }
+// }
 bushChecker(bushBerryColours1);
 console.log(bushChecker(bushBerryColours1));
 console.log(bushChecker(bushBerryColours2));
