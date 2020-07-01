@@ -13,13 +13,17 @@ let bushBerryColours1 = ["pink", "pink", "pink", "neon", "pink", "transparent"];
 let bushBerryColours2 = ["pink", "pink", "pink", "pink"];
 
 function bushChecker(berry) {
-    if (berry.some(color => color !== "pink")){
-      return "Toxic! Leave bush alone!";
-    } else {
-      return "Bush is safe to eat from";
-    }
+  if (berry.some(color => color !== "pink")) {
+    return "Toxic! Leave bush alone!";
+  } else {
+    return "Bush is safe to eat from";
+  }
 }
 bushChecker(bushBerryColours1);
+console.log(bushChecker(bushBerryColours1));
+console.log(bushChecker(bushBerryColours2));
+
+
 
 
 /* ======= TESTS - DO NOT MODIFY ===== */
