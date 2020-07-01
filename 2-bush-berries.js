@@ -12,22 +12,22 @@
 // let bushBerryColours1 = ["pink", "pink", "pink", "neon", "pink", "transparent"];
 // let bushBerryColours2 = ["pink", "pink", "pink", "pink"];
 
-function bushChecker(berry) {
-  if (berry.some(x => x !== "pink")) {
-    return "Toxic! Leave bush alone!";
-  } else {
-    return "Bush is safe to eat from";
-  }
-}
-
 // function bushChecker(berry) {
-//   if (berry.every(color => color
-//     == "pink")) {
-//     return "Bush is safe to eat from";
-//   } else {
+//   if (berry.some(x => x !== "pink")) {
 //     return "Toxic! Leave bush alone!";
+//   } else {
+//     return "Bush is safe to eat from";
 //   }
 // }
+
+function bushChecker(berry) {
+  if (berry.every(color => color
+    == "pink")) {
+    return "Bush is safe to eat from";
+  } else {
+    return "Toxic! Leave bush alone!";
+  }
+}
 // bushChecker(bushBerryColours1);
 // console.log(bushChecker(bushBerryColours1));
 // console.log(bushChecker(bushBerryColours2));
