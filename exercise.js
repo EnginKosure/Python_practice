@@ -8,15 +8,12 @@
 
 var pairsByIndexRaw = [[0, 3], [1, 2], [2, 1], null, [1, 2, 3], false, "whoops"];
 
-var pairsByIndex = pairsByIndexRaw.filter(filterOut);; // Complete this statement
+var pairsByIndex = pairsByIndexRaw.filter(index => index instanceof Array && index.length == 2);; // Complete this statement
 
-function filterOut(index) {
-  // return Array.isArray(index) && index.length == 2
-  return index instanceof Array && index.length == 2
-}
-// if (Array.isArray(index) && typeof index[1] != 'undefined') {
-//   return index.filter(a => a.length == 2);
+// function filterOut(index) {
+//   return Array.isArray(index) && index.length == 2
 // }
+
 
 var students = ["Islam", "Lesley", "Harun", "Rukmini"];
 var mentors = ["Daniel", "Irina", "Mozafar", "Luke"];
