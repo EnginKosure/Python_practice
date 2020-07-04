@@ -8,7 +8,7 @@
 
 var pairsByIndexRaw = [[0, 3], [1, 2], [2, 1], null, [1, 2, 3], false, "whoops"];
 
-var pairsByIndex = pairsByIndexRaw.filter(index => index instanceof Array && index.length == 2);; // Complete this statement
+var pairsByIndex = pairsByIndexRaw.filter(index => index instanceof Array && index.length == 2);// Complete this statement
 
 // function filterOut(index) {
 //   return Array.isArray(index) && index.length == 2
