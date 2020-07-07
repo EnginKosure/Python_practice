@@ -4,13 +4,13 @@ while control_var:
     number = input("Enter the number : ")
 
     if '.' in number:
-        number = input("Please enter an integer number : ")
+        print("Please enter an integer number! ")
         continue
-    elif number.isdigit() and int(number) < 0:
-        number = input("Please enter a positive number : ")
+    elif number[0] == '-':
+        print("Please enter a positive number! ")
         continue
     elif not number.isdigit():
-        number = input("Please enter only numbers : ")
+        print("Please enter only numbers! ")
         continue
 
     else:
