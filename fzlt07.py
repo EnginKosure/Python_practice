@@ -1,4 +1,21 @@
-number = input("Enter the number : ")
+control_var = True
+
+while control_var:
+    number = input("Enter the number : ")
+
+    if '.' in number:
+        number = input("Please enter an integer number : ")
+        continue
+    elif number.isdigit() and int(number) < 0:
+        number = input("Please enter a positive number : ")
+        continue
+    elif not number.isdigit():
+        number = input("Please enter only numbers : ")
+        continue
+
+    else:
+        control_var = False
+
 n = len(number)
 print(n)
 sum_nth_pow = 0
