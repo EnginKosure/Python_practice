@@ -27,3 +27,10 @@ encrypt("alpaca")  # "0c0pl0aca"
 
 def encrypt1(word):
     return word[::-1].translate(str.maketrans('aeou', '0123')) + 'aca'
+
+
+coll = [2, 5, 9, 5, 4, 7, 0, 27, 35, 44, 66]
+print([i for i in coll if i % 2])
+print([i for i in coll if i % 2 == 0])
+print(len([i for i in coll if i % 2]))
+print(len([i for i in coll if i % 2 == 0]))
