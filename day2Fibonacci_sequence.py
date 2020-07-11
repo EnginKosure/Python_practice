@@ -2,34 +2,46 @@
 # Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.
 
 
-def generate_fibonacci_sq(input):
-    seq = []
-    x = 1
-    y = 1
-    for i in range(input):
-        seq.append(x)
-        # z=x+y
-        # x=y
-        # y=z
-        x, y = y, x + y
+# def generate_fibonacci_sq(input):
+#     seq = []
+#     x = 1
+#     y = 1
+#     for i in range(input):
+#         seq.append(x)
+#         # z=x+y
+#         # x=y
+#         # y=z
+#         x, y = y, x + y
 
-    print('nth term', seq)
-    return seq
-
-
-input = int(input('enter a number till 100'))
+#     print('nth term', seq)
+#     return seq
 
 
-def fibonacci_till_input(input):
-    seq = []
-    x = 1
-    y = 1
-
-    while x < input:
-        seq.append(x)
-        x, y = y, x + y
-    print('till input', seq)
+# input = int(input('enter a number till 100'))
 
 
-generate_fibonacci_sq(input)
-fibonacci_till_input(input)
+# def fibonacci_till_input(input):
+#     seq = []
+#     x = 1
+#     y = 1
+
+#     while x < input:
+#         seq.append(x)
+#         x, y = y, x + y
+#     print('till input', seq)
+
+
+# generate_fibonacci_sq(input)
+# fibonacci_till_input(input)
+
+
+num = 1
+count = 0
+list_fibonacci = [1]
+i = 0
+while max(list_fibonacci) < 55:
+    count += list_fibonacci[i-1]
+    list_fibonacci.append(count)
+    i += 1
+
+print(list_fibonacci)
