@@ -20,20 +20,20 @@
 # input = int(input('enter a number till 100'))
 
 
-# def fibonacci_till_input(input):
-#     seq = []
-#     x = 1
-#     y = 1
+def fibonacci_till_input(input):
+    seq = []
+    x = 1
+    y = 1
 
-#     while x < input:
-#         seq.append(x)
-#         x, y = y, x + y
-#     print('till input', seq)
+    while x <= input:
+        seq.append(x)
+        x, y = y, x + y
+    print('till input', seq)  # till input [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
 
 # generate_fibonacci_sq(input)
 # fibonacci_till_input(input)
-
+fibonacci_till_input(55)
 
 num = 1
 count = 0
