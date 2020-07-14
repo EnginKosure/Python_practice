@@ -2,19 +2,19 @@
 # Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.
 
 
-# def generate_fibonacci_sq(input):
-#     seq = []
-#     x = 1
-#     y = 1
-#     for i in range(input):
-#         seq.append(x)
-#         # z=x+y
-#         # x=y
-#         # y=z
-#         x, y = y, x + y
+def generate_fibonacci_sq(input):
+    seq = []
+    x = 1
+    y = 1
+    for i in range(input):
+        seq.append(x)
+        # z=x+y
+        # x=y
+        # y=z
+        x, y = y, x + y
 
-#     print('nth term', seq)
-#     return seq
+    print('nth term', seq)
+    return seq
 
 
 # input = int(input('enter a number till 100'))
