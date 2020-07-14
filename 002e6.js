@@ -65,11 +65,22 @@ let restaurantFinderApplication = {
     },
 
     findRestaurantServingDish: function (dishName) { // Complete here
-        return this.restaurants.filter(x => x.menu.includes(dishName)).map(x => x.name);
+        // return this.restaurants.filter(x => x.menu.includes(dishName)).map(x => x.name);
+        return (this.restaurants.reduce((n, x) => x.menu.includes(dishName) ? n.push(x.name) : n, [0]));
+
     },
 
+    //     let myArray =['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd']
+    // let myOrderedArray = myArray.reduce(function (accumulator, currentValue) {
+    //         if (accumulator.indexOf(currentValue) === -1) {
+    //             accumulator.push(currentValue)
+    //         }
+    //         return accumulator
+    //     }, [])
+
     countNumberOfRestaurantsInArea: function (area) { // Complete here
-        return (this.restaurants.filter(x => x.address.area == area)).length;
+        // return (this.restaurants.filter(x => x.address.area == area)).length;
+        return (this.restaurants.reduce((n, x) => x.address.area == area ? n += 1 : n, 0));
     }
 };
 

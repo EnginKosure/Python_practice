@@ -21,13 +21,16 @@ def generate_fibonacci_sq(input):
 
 
 def fibonacci_till_input(input):
-    seq = []
-    x = 1
+    seq = [1]
+    x = 0
     y = 1
 
     while x <= input:
-        seq.append(x)
-        x, y = y, x + y
+        seq.append(y)
+        # x, y = y, x + y
+        x = y-x
+        y = x+y
+
     print('till input', seq)  # till input [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
 
@@ -35,24 +38,24 @@ def fibonacci_till_input(input):
 # fibonacci_till_input(input)
 fibonacci_till_input(55)
 
-num = 1
-count = 0
-list_fibonacci = [1]
-i = 0
-while max(list_fibonacci) < 55:
-    count += list_fibonacci[i-1]
-    list_fibonacci.append(count)
-    i += 1
+# num = 1
+# count = 0
+# list_fibonacci = [1]
+# i = 0
+# while max(list_fibonacci) < 55:
+#     count += list_fibonacci[i-1]
+#     list_fibonacci.append(count)
+#     i += 1
 
-print(list_fibonacci)
+# print(list_fibonacci)
 
 
-n = int(input("enter a number to check if it is a prime or not:"))
-count = 0
-for i in range(1, n+1):
-    if not (n % i):
-        count += 1
-if (n == 0) or (n == 1) or (count >= 3):
-    print(n, "is not a prime number.")
-else:
-    print(n, "is a prime number")
+# n = int(input("enter a number to check if it is a prime or not:"))
+# count = 0
+# for i in range(1, n+1):
+#     if not (n % i):
+#         count += 1
+# if (n == 0) or (n == 1) or (count >= 3):
+#     print(n, "is not a prime number.")
+# else:
+#     print(n, "is a prime number")
