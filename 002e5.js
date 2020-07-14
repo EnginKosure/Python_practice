@@ -21,11 +21,11 @@ let coffeeMachine = {
         return this.insertedAmount += amount;
     },
     getCoffee: function (coffee) {
-        if (this.insertedAmount >= 3.00) {
+        if (this.insertedAmount && coffee == 'flatWhite' >= 3.00) {
             return `Please take your ${coffee}`;
-        } else if (this.insertedAmount >= 2.40) {
+        } else if (this.insertedAmount >= 2.40 && coffee == 'cappuccino') {
             return `Please take your ${coffee}`;
-        } else if (this.insertedAmount >= 1.50) {
+        } else if (this.insertedAmount >= 1.50 && coffee == 'blackCoffee') {
             return `Please take your ${coffee}`;
         }
         else {
