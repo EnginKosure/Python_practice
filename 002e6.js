@@ -61,12 +61,12 @@ let restaurantFinderApplication = {
     restaurants: restaurants,
 
     findAvailableRestaurants: function (numberOfPeople) { // Complete here
-        return (this.restaurants.filter(x => (x.totalSeats - x.numberOfCustomers) >= numberOfPeople)).map(x => x.name)
+        return (restaurants.filter(x => (x.totalSeats - x.numberOfCustomers) >= numberOfPeople)).map(x => x.name)
     },
 
     findRestaurantServingDish: function (dishName) { // Complete here
-        // return this.restaurants.filter(x => x.menu.includes(dishName)).map(x => x.name);
-        return (this.restaurants.reduce((n, x) => x.menu.includes(dishName) ? n.push(x.name) : n, [0]));
+        return restaurants.filter(x => x.menu.includes(dishName)).map(x => x.name);
+        // return (this.restaurants.reduce((n, x) => x.menu.includes(dishName) ? n.push(x.name) : n, [0]));
 
     },
 
@@ -80,7 +80,7 @@ let restaurantFinderApplication = {
 
     countNumberOfRestaurantsInArea: function (area) { // Complete here
         // return (this.restaurants.filter(x => x.address.area == area)).length;
-        return (this.restaurants.reduce((n, x) => x.address.area == area ? n += 1 : n, 0));
+        return (restaurants.reduce((n, x) => x.address.area == area ? n += 1 : n, 0));
     }
 };
 
