@@ -11,6 +11,7 @@ not surprised when this worked.
 
 
 def find(txt, q): return txt[txt.find(q)-18:txt.find(q)+18]
+#find = lambda txt, q: txt[txt.find(q)-18:txt.find(q)+18]
 
 
 # Result
