@@ -18,4 +18,5 @@ def char_counter(s):
     return my_dict
 
 
-char_counter('abbcccddddeeeeeffffff0987&*()')
+# {'h': 1, 'i': 1, 'p': 2, 'o': 2, ' ': 3, 'r': 1, 'u': 2, 'n': 1, 's': 2, 't': 1, '!': 1}
+char_counter('hippo runs to us!')
