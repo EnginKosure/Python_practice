@@ -5,3 +5,17 @@
 # takes a sentence from the user,
 # counts the number of each letter of the sentence,
 # collects the letters/chars as a key and the counted numbers as a value in a dictionary.
+
+
+def char_counter(s):
+    my_dict = {}
+    for i in s:
+        if i in my_dict:
+            my_dict[i] += 1
+        else:
+            my_dict[i] = 1
+    print(my_dict)
+    return my_dict
+
+
+char_counter('abbcccddddeeeeeffffff0987&*()')
