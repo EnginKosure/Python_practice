@@ -5,6 +5,7 @@
 # takes a sentence from the user,
 # counts the number of each letter of the sentence,
 # collects the letters/chars as a key and the counted numbers as a value in a dictionary.
+s = input('Enter a sentence: ')
 
 
 def char_counter(s):
@@ -20,3 +21,4 @@ def char_counter(s):
 
 # {'h': 1, 'i': 1, 'p': 2, 'o': 2, ' ': 3, 'r': 1, 'u': 2, 'n': 1, 's': 2, 't': 1, '!': 1}
 char_counter('hippo runs to us!')
+char_counter(s)
