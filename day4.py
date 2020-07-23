@@ -97,7 +97,7 @@ def calc(a, b, op):
         print('wrong input')
 
 
-def main():  # Wrapper function
+def x():  # Wrapper function
 
     a = int(input('Please type the first number: '))
     b = int(input('Please type the second number: '))
@@ -109,4 +109,4 @@ def main():  # Wrapper function
 
 
 if __name__ == '__main__':
-    main()
+    x()
