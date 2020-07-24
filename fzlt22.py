@@ -5,10 +5,20 @@
 
 def perrin(n):
     lst = [3, 0, 2]
-    while len(lst) < n:
+    while len(lst) <= n:
         lst.append(lst[-3]+lst[-2])
     print(lst)
-    return lst
+    return lst[n]
 
 
 perrin(20)
+
+# def perrin(n):
+#     lst = [3, 0, 2]
+#     for i in range(3, n+1):
+#         lst.append(lst[i-3] + lst[i-2])
+#     print(lst[n])
+#     return lst[n]
+
+
+# perrin(20)
