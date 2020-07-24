@@ -11,7 +11,7 @@ def perrin(n):
     return lst[n]
 
 
-perrin(20)
+# perrin(20)
 
 # def perrin(n):
 #     lst = [3, 0, 2]
@@ -22,3 +22,14 @@ perrin(20)
 
 
 # perrin(20)
+
+# def perrin(n):
+#     A, i = [3, 0, 2], 3
+#     while len(A) <= n:
+#         A.append(A[i-3]+A[i-2])
+#         i += 1
+#     print(A[0]*(n == 0)+A[1]*(n == 1)+A[2]*(n == 2)+A[-1]*(n >= 3))
+#     return A[0]*(n == 0)+A[1]*(n == 1)+A[2]*(n == 2)+A[-1]*(n >= 3)
+
+
+# perrin(3)
