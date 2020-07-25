@@ -35,3 +35,7 @@ def find_bob_4(*args):
 
 print(find_bob_4("B", "Jimmy", "Layla", "Bob"))
 print(find_bob_4("B", "Jimmy", "Layla"))
+
+
+def find_bob_5(names):
+    return names.index("Bob") if "Bob" in names else -1
