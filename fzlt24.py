@@ -27,7 +27,11 @@ def find_bob_3(names):
 def find_bob_4(*args):
     for n in args:
         if n == "Bob":
-            print(args.index(n))
+            return args.index(n)
             break
-        else:
-        print(-1)
+    else:
+        return -1
+
+
+print(find_bob_4("B", "Jimmy", "Layla", "Bob"))
+print(find_bob_4("B", "Jimmy", "Layla"))
