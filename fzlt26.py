@@ -1,33 +1,27 @@
-def allAnagram(input):
+def group_anagrams(input):
 
-    # empty dictionary which holds subsets
-    # of all anagrams together
+    # start an empty dictionary to hold the values
     my_dict = {}
 
     # traverse list of strings
-    for strVal in input:
+    for s in input:
 
-        # sorted(iterable) method accepts any
-        # iterable and rerturns list of items
-        # in ascending order
-        key = ''.join(sorted(strVal))
-        print(key)
+        key = ''.join(sorted(s))
+        # print(key)  #'aet'
 
-        # now check if key exist in dictionary
-        # or not. If yes then simply append the
-        # strVal into the list of it's corresponding
-        # key. If not then map empty list onto
-        # key and then start appending values
+        # check if key exist in dictionary or not.
+        # If yes append the s into the list of corresponding key.
+        # If not then start an empty list on the key and then append values
         if key in my_dict.keys():
-            my_dict[key].append(strVal)
+            my_dict[key].append(s)
         else:
             my_dict[key] = []
-            my_dict[key].append(strVal)
+            my_dict[key].append(s)
 
-     # traverse dictionary and concatenate values
-     # of keys together
     output = []
-    print(my_dict)
+
+    # print(my_dict)
+    # {'aet': ['eat', 'tea', 'ate'], 'ant': ['tan', 'nat'], 'abt': ['bat']}
     for key, value in my_dict.items():
         output.append(value)
 
@@ -35,4 +29,4 @@ def allAnagram(input):
 
 
 xx = ["eat", "tea", "tan", "ate", "nat", "bat"]
-print(allAnagram(xx))
+print(group_anagrams(xx))  # [['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']]
