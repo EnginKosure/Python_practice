@@ -9,6 +9,7 @@
 
 # missing_char('fazilet', 1)
 # missing_char('serra', 2)
+# Bu da for loop lu cozum
 def make_box(n):
     lst = []
     for i in range(n):
@@ -16,7 +17,6 @@ def make_box(n):
             lst.append('#'*n)
         else:
             lst.append('#'+' '*(n-2)+'#')
-    print(lst)
     return lst
 
 
