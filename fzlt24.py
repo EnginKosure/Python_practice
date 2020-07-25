@@ -15,3 +15,19 @@ def find_bob_2(names):
         return names.index('Bob')
     except:
         return -1
+
+
+def find_bob_3(names):
+    if 'Bob' in names:
+        return names.index('Bob')
+    else:
+        return -1
+
+
+def find_bob_4(*args):
+    for n in args:
+        if n == "Bob":
+            print(args.index(n))
+            break
+        else:
+        print(-1)
