@@ -22,11 +22,21 @@ def group_anagrams(input):
 
     # print(my_dict)
     # {'aet': ['eat', 'tea', 'ate'], 'ant': ['tan', 'nat'], 'abt': ['bat']}
-    for key, value in my_dict.items():
-        output.append(value)
+    # for key, value in my_dict.items():
+    # output.append(value)
 
-    return output
+    return list(my_dict.values())
 
 
 xx = ["eat", "tea", "tan", "ate", "nat", "bat"]
 print(group_anagrams(xx))  # [['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']]
+
+
+a = ["eat", "tea", "tan", "ate", "nat", "bat"]
+b = {}
+for i in a:
+    x = "".join(sorted(i))
+    if x not in b.keys():
+        b[x] = []
+    b[x].append(i)
+print(list(b.values()))
