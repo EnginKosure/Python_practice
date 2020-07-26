@@ -28,3 +28,11 @@ def permute(numbers):
 xx = [1, 2, 3]
 
 print(permute(xx))
+
+
+lst = [1, 2, 3]
+p = [[]]
+
+for i in range(len(lst)):
+    p = [[a] + b for a in lst for b in p if a not in b]
+print(p)
