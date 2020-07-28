@@ -10,7 +10,7 @@ b = [
     [0, 0, 0, 0, 0, 0, 7, 0, 0]
 ]
 
-print('-'*21)
+print('- '*11)
 for i in range(len(b)):
     if i == 3 or i == 6:
         print('-'*21)
