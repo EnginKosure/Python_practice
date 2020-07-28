@@ -3,6 +3,7 @@ import string
 
 def print_rangoli(size):
     x = string.ascii_lowercase[:size]
+    print('x', x)
     width = size+(size-1)
     width += width-1
     for ii in range(1, size):
