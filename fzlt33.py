@@ -13,5 +13,17 @@ def find_missing(array):
     return array_pos[-1] + 1 if control == array_pos else list(set(control).difference(array_pos))[0]
 
 
+def first_missing_positive(nums):
+    s = set(nums)
+    print(s)
+    i = 1
+    while i in s:
+        i += 1
+    return i
+
+
 print(find_missing([1, 2, 0]))
 print(find_missing([3, 4, -1, 1]))
+
+print(first_missing_positive([1, 2, 0]))
+print(first_missing_positive([3, -2, -2, -3, -3, -4, -4, 4, -1, 1]))
