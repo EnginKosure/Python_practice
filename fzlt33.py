@@ -21,8 +21,16 @@ def first_missing_positive(nums):
     return i
 
 
+def check(my_array):
+    for i in range(max(my_array)+2):
+        if i > 0 and not i in my_array:
+            return i
+
+
 print(find_missing([1, 2, 0]))
 print(find_missing([3, 4, -1, 1]))
 
 print(first_missing_positive([1, 2, 0]))
 print(first_missing_positive([3, 2, -2, -2, -3, -3, -4, -4, 4, -1, 1]))
+
+print(check([3, 2, -2, -2, -3, -3, -4, -4, 4, -1, 1, 6, 4, 3]))
