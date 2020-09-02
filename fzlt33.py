@@ -15,7 +15,6 @@ def find_missing(array):
 
 def first_missing_positive(nums):
     s = set(nums)
-    print(s)
     i = 1
     while i in s:
         i += 1
@@ -26,4 +25,4 @@ print(find_missing([1, 2, 0]))
 print(find_missing([3, 4, -1, 1]))
 
 print(first_missing_positive([1, 2, 0]))
-print(first_missing_positive([3, -2, -2, -3, -3, -4, -4, 4, -1, 1]))
+print(first_missing_positive([3, 2, -2, -2, -3, -3, -4, -4, 4, -1, 1]))
