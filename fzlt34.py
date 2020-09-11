@@ -9,14 +9,12 @@
 
 
 class Log:
-    def __init__(self, size):
-        self.size = size
+    def __init__(self, N):
+        self.N = N
         self.log = []
-        self.ind = 0
 
     def record(self, order_id):
-        # self.ind = (self.ind+1) % self.size
-        if len(self.log) < self.size:
+        if len(self.log) < self.N:
             self.log.append(order_id)
         else:
             self.log.pop(0)
@@ -39,6 +37,10 @@ a.record(19)
 a.record(18)
 a.record(17)
 a.record(16)
-a.record(15)
+a.record(21)
+a.record(22)
+a.record(23)
+a.record(24)
+
 
 print(a.get_last(3))
