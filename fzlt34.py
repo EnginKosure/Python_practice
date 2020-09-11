@@ -12,11 +12,32 @@ class Log:
     def __init__(self, size):
         self.size = size
         self.log = []
-        self.current_Index = 0
+        self.ind = 0
 
     def record(self, order_id):
-        self.log[self.current_Index] = order_id
-        self.current_Index = (self.current_Index+1) % self.size
+        self.ind = (self.ind) % self.size
+        if len(self.log) < self.size:
+            self.log.append(order_id)
+        else:
+            self.log[self.ind] = order_id
 
     def get_last(self, i):
-        return self.log[(self.current_Index-i+self.size) % self.size]
+        print(self.log)
+        return self.log[-i]
+
+
+a = Log(10)
+a.record(1)
+a.record(2)
+a.record(10)
+a.record(11)
+a.record(12)
+a.record(14)
+a.record(120)
+a.record(19)
+a.record(18)
+a.record(17)
+a.record(16)
+a.record(15)
+
+print(a.get_last(3))
