@@ -21,7 +21,6 @@ class Log:
             self.log.append(order_id)
 
     def get_last(self, i):
-        print(self.log)
         return self.log[-i]
 
 
