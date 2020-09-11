@@ -15,11 +15,12 @@ class Log:
         self.ind = 0
 
     def record(self, order_id):
-        self.ind = (self.ind) % self.size
+        # self.ind = (self.ind+1) % self.size
         if len(self.log) < self.size:
             self.log.append(order_id)
         else:
-            self.log[self.ind] = order_id
+            self.log.pop(0)
+            self.log.append(order_id)
 
     def get_last(self, i):
         print(self.log)
