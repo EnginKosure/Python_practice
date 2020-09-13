@@ -9,3 +9,10 @@
 # 8 = max(7, 8, 7)
 # You can modify the input array in-place and you do not need to store the results.
 # You can simply print them out as you compute them.
+
+
+def find_max(lst, k):
+    result = []
+    for i in range(len(lst) - k + 1):
+        result.append(max(lst[i:i+k]))
+    return result
