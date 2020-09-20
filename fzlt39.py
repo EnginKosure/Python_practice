@@ -6,7 +6,9 @@
 
 def max_overlapping(intervals):
     starts = sorted(start for start, end in intervals)
+    print('starts', starts)
     ends = sorted(end for start, end in intervals)
+    print('ends', ends)
     current_max = 0
     current_overlap = 0
     i, j = 0, 0
@@ -19,6 +21,9 @@ def max_overlapping(intervals):
             current_overlap -= 1
             j += 1
     return current_max
+
+
+print(max_overlapping([(30, 75), (0, 50), (60, 150)]))
 
 
 def max_overlapping2(lst):
