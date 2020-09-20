@@ -19,3 +19,17 @@ def max_overlapping(intervals):
             current_overlap -= 1
             j += 1
     return current_max
+
+
+def max_overlapping2(lst):
+    maxrooms = 1
+    for i in range(len(lst)-1):
+        overlap_left, overlap_right = 1, 1
+        for j in range(i+1, len(lst)):
+            if (lst[i][0] in range(lst[j][0], lst[j][1])):
+                overlap_left += 1
+            if (lst[i][1] in range(lst[j][0], lst[j][1])):
+                overlap_right += 1
+        if max(overlap_left, overlap_right) > maxrooms:
+            maxrooms = max(overlap_left, overlap_right)
+    return maxrooms
