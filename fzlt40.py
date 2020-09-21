@@ -19,3 +19,27 @@
 # 'jumps   ',
 # 'over the',
 # 'lazy dog']
+
+
+def justify(list_of_words, k):
+    list_of_words_1 = []
+    counter = 0
+    content = 0
+    for i in list_of_words:
+        content += len(i)
+        if k >= (content+counter):
+            list_of_words_1.append(" "+i)
+            counter += 1
+        else:
+            list_of_words_1.append("0")
+            content = 0
+            counter = 0
+            list_of_words.insert(0, i)
+    divided_list = ''.join(list_of_words_1)
+    divided_list = [line.split('-') for line in divided_list.split('0')]
+    divided_list = [i[0].lstrip() for i in divided_list]
+    print(divided_list)
+
+
+justify(["the", "quick", "brown", "fox", "jumps",
+         "over", "the", "lazy", "dog"], 16)
