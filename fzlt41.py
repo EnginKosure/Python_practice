@@ -27,7 +27,7 @@ def decode(s):
         if i.isdigit():
             # print(count*10)
             count = count*10 + int(i)
-            print(count)
+            # print(count)
         else:
             result += count * i
             count = 0
@@ -35,3 +35,17 @@ def decode(s):
 
 
 print(decode("44A3B2C1D2A"))
+print(encode('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBCCDAA'))
+
+
+def encode2(s):
+    result = s[0]
+    count = 1
+    for i in range(1, len(s)):
+        if s[i] != result[-1]:
+            result = result[:-1]+str(count)+result[-1]+s[i]
+            count = 1
+        else:
+            count += 1
+    result = result[:-1]+str(count)+result[-1]
+    return result
