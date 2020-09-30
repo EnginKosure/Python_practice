@@ -20,15 +20,15 @@ def find_biggest(lst):
 find_biggest([-10, -10, 5, 2])
 
 
-# def multiplying(given_list):
-#     temp_1 = -(math.inf)
-#     for i in range(len(given_list)):
-#         for j in range(len(given_list)):
-#             for k in range(len(given_list)):
-#                 if i != j and i != k and j != k:
-#                     temp = given_list[i]*given_list[j]*given_list[k]
-#                     if temp > temp_1:
-#                         temp_1 = temp
-#                     else:
-#                         continue
-#     return temp_1
+def multiplying(given_list):
+    temp_1 = -(math.inf)
+    for i in range(len(given_list)):
+        for j in range(len(given_list)):
+            for k in range(len(given_list)):
+                if i != j and i != k and j != k:
+                    temp = given_list[i]*given_list[j]*given_list[k]
+                    if temp > temp_1:
+                        temp_1 = temp
+                    else:
+                        continue
+    return temp_1
