@@ -6,7 +6,7 @@ function reverseIt(s) {
   console.log(rev);
   return rev;
 }
-reverseIt("fazilet");
+reverseIt("fazilet"); //telizaf
 
 function reverseIt2(s) {
   let rev = "";
@@ -16,4 +16,4 @@ function reverseIt2(s) {
   console.log(rev);
   return rev;
 }
-reverseIt2("fazilet");
+reverseIt2("fazilet"); //telizaf
