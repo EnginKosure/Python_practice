@@ -1,2 +1,3 @@
 # Python_practice
-For daily challenges
+
+For daily challenges and coaching sessions
