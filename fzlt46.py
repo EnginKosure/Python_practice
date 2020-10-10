@@ -8,7 +8,7 @@ while waarde != 0:
         volume += waarde**2
         waarde = int(input("Geef een getal: "))
         # Burada if kontrolu buyuk sayiyi yakalayamiyordu, control_variable diye bir degisken olusturup
-        # bir onceki degeri uzerine yazarak sakladik.
+        # bir onceki degeri uzerine yazarak sakladik. Bu haliyle tum testleri geciyor.
         if waarde >= control_variable:
             volume = 0
 
