@@ -9,3 +9,10 @@ def check(x, y, b):
 
 def check2(x, y, b):
     return x*b+y*(1-b)
+
+
+print(check(1, 2, 0))  # 2
+print(check(1, 2, 1))  # 1
+
+print(check2(1, 2, 0))  # 2
+print(check2(1, 2, 1))  # 1
