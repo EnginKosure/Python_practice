@@ -5,3 +5,7 @@
 
 def check(x, y, b):
     return x*b | y*(1-b)
+
+
+def check2(x, y, b):
+    return x*b+y*(1-b)
