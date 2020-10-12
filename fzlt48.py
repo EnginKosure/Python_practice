@@ -4,12 +4,6 @@
 # Given the string ")(", you should return 2, since we must remove all of them
 
 
-def checkform(text):
-    while text != text.replace('()', ''):
-        text = text.replace('()', '')
-    return len(text)
-
-
 def checkform1(text):
     while '()' in text:
         text = text.replace('()', '')
