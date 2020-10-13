@@ -9,3 +9,7 @@ def div_wod(x, y):
         x -= y
         res += 1
     return res
+
+
+print(div_wod(11, 20))  # 0
+print(div_wod(13, 3))  # 4
