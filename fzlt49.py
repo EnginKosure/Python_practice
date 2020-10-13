@@ -16,7 +16,7 @@ def div_wod(x, y):
 
 
 def div_wod1(x, y, res=0):
-    if x > y:
+    if y <= x:
         res += 1
         return div_wod1(x-y, y, res)
     else:
@@ -24,4 +24,4 @@ def div_wod1(x, y, res=0):
 
 
 print(div_wod1(11, 20))  # 0
-print(div_wod1(15, 3))  # 4
+print(div_wod1(15, 3))  # 5
