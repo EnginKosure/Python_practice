@@ -7,8 +7,19 @@
 
 
 def order_lesson(o):
-    return [k for k, l in sorted(o.items()) if k != [] or k in sorted(o.items())[sorted(o.items()).index(k)+1]]
+    return [k if k != [] or k in sorted(o.items())[sorted(o.items()).index(k)+1] else None for k, l in sorted(o.items())]
 
 
-z = {'CSC300': ['CSC100', 'CSC200'], 'CSC200': ['CSC100'], 'CSC100': []}
-print(order_lesson(z))  # ['CSC100', 'CSC200', 'CSC300']
+course = {'CSC300': ['CSC100', 'CSC200'], 'CSC200': ['CSC100'], 'CSC100': []}
+w = {'CSC400': ['CSC100', 'CSC200'], 'CSC300': [],
+     'CSC200': ['CSC100'], 'CSC100': []}
+print(order_lesson(course))  # ['CSC100', 'CSC200', 'CSC300']
+print(order_lesson(w))  # ['CSC100', 'CSC200', 'CSC300', 'CSC400']
+
+
+answer = []
+for i in range(len(course.keys())):
+    for j in course.keys():
+        answer.append(j) if ((course[j] == answer or len(
+            course[j]) <= len(answer)) and j not in answer) else answer
+print(answer)
