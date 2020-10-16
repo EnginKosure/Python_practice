@@ -4,7 +4,11 @@ myArray = ["clarusway", "google", "adobe", "cisco", 'space - x', "clarusway", "c
 // { clarusway: 4, google: 2, adobe: 1, cisco: 2, spaceX: 1, facebook: 1 }
 
 const c = a => a.reduce((a, c) => (a[c] = ++a[c] || 1, a), {});
-console.log(c(myArray))
+// console.log(c(myArray))
+
+// let newArray = arr.map(callback(currentValue[, index[, array]]) {
+//     // return element for newArray, after executing something
+// }[, thisArg]);
 
 let names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice']
 
