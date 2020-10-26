@@ -30,6 +30,19 @@ def findPowerSet(S):
         s.clear()
 
 
+def zipFunction(a, b): return b if a == '1' else None
+
+
+def powerSet(s):
+    powerset = []
+    for i in range(1, 2**len(s)):
+        zippedList = [zipFunction(a, b) for (a, b) in list(
+            (zip((['0']*(len(s) - len(list(bin(i)[2:])))+list(bin(i)[2:])), s)))]
+        powerset.append(list(filter(lambda v: v != None, zippedList)))
+    powerset.append([])
+    return sorted(powerset)
+
+
 if __name__ == '__main__':
 
     S = [1, 2, 3]
