@@ -15,3 +15,7 @@ def non_duplicated_int1(lst):
         else:
             d[i] = 1
     return list(filter(lambda x: (d[x] == 1), d))[0]
+
+
+def non_duplicated_int2(lst):
+    return (sum(set(lst)) * 3 - sum(lst)) // 2
