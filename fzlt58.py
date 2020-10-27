@@ -19,3 +19,10 @@ def non_duplicated_int1(lst):
 
 def non_duplicated_int2(lst):
     return (sum(set(lst)) * 3 - sum(lst)) // 2
+
+
+def non_duplicated_int3(lst):
+    a, b = 0, 0
+    for x in lst:
+        a, b = (~x & a & ~b) | (x & ~a & b), ~a & (x ^ b)
+    return b
