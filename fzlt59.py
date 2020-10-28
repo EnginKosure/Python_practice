@@ -9,3 +9,16 @@
 # and starting airport 'A', you should return the list ['A', 'B', 'C', 'A', 'C']
 # even though ['A', 'C', 'A', 'B', 'C'] is also a valid itinerary.
 # However, the first one is lexicographically smaller.
+
+
+def itinerary(flights, myItinerary):
+    if not flights:
+        return myItinerary
+    last_destination = myItinerary[-1]
+    for i, (first, destination) in enumerate(flights):
+        flights_updated = flights[:i] + flights[i + 1:]
+        myItinerary.append(destination)
+        if first == last_destination:
+            return itinerary(flights_updated, myItinerary)
+        myItinerary.pop()
+    return None
