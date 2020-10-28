@@ -12,6 +12,9 @@
 
 
 def itinerary(flights, myItinerary):
+    if isinstance(myItinerary, str):
+        myItinerary = list(myItinerary)
+
     if not flights:
         return myItinerary
     last_destination = myItinerary[-1]
@@ -22,3 +25,8 @@ def itinerary(flights, myItinerary):
             return itinerary(flights_updated, myItinerary)
         myItinerary.pop()
     return None
+
+
+x = [('A', 'B'), ('A', 'C'), ('B', 'C'), ('C', 'A')]
+
+print(itinerary(x, "A"))
