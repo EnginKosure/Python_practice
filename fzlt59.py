@@ -13,7 +13,7 @@
 
 def itinerary(flights, myItinerary):
     if isinstance(myItinerary, str):
-        myItinerary = list(myItinerary)
+        myItinerary = [myItinerary]
 
     if not flights:
         return myItinerary
@@ -28,8 +28,11 @@ def itinerary(flights, myItinerary):
 
 
 x = [('A', 'B'), ('A', 'C'), ('B', 'C'), ('C', 'A')]
+z = [('SFO', 'HKO'), ('YYZ', 'SFO'), ('YUL', 'YYZ'), ('HKO', 'ORD')]
 
-print(itinerary(x, "A"))
+# print(itinerary(x, "A"))
+
+print(itinerary(z, 'YUL'))
 
 
 def compute_itenary(lst, start):
