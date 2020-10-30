@@ -12,7 +12,7 @@ def subset_sum(l, k):
     for i in l:
         result += [j+[i] for j in result]
         result.append([i])
-    return list(filter(lambda x: sum(x) == k, result))
+    return list(filter(lambda x: sum(x) == k, result))[0]
 
 
 S = [12, 1, 61, 5, 9, 2]
