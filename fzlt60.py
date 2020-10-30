@@ -15,4 +15,5 @@ def subset_sum(l, k):
     return list(filter(lambda x: sum(x) == k, result))
 
 
-p
+S = [12, 1, 61, 5, 9, 2]
+print(subset_sum(S, 24))
