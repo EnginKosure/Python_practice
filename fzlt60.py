@@ -5,3 +5,14 @@
 # You may assume all numbers in the list are positive.
 # For example, given S = [12, 1, 61, 5, 9, 2] and k = 24,
 # return [12, 9, 2, 1] since it sums up to 24.
+
+
+def subset_sum(l, k):
+    result = []
+    for i in l:
+        result += [j+[i] for j in result]
+        result.append([i])
+    return list(filter(lambda x: sum(x) == k, result))
+
+
+p
