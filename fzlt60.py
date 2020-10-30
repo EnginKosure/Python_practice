@@ -17,3 +17,19 @@ def subset_sum(l, k):
 
 S = [12, 1, 61, 5, 9, 2]
 print(subset_sum(S, 24))
+
+
+def sum_set(s, k):
+    base = []
+    lst = [base]
+    for i in range(len(s)):
+        orig = lst[:]
+        new = s[i]
+        for j in range(len(lst)):
+            lst[j] = lst[j] + [new]
+        lst += orig
+    answer = []
+    for r in lst:
+        if sum(r) == k:
+            answer = r
+    return answer
