@@ -7,3 +7,11 @@
 # A sorted list has zero inversions.
 # The array [2, 4, 1, 3, 5] has three inversions: (2, 1), (4, 1), and (4, 3).
 # The array [5, 4, 3, 2, 1] has ten inversions: every distinct pair forms an inversion.
+
+
+def f_inversion(nums):
+    result = []
+    for i in nums:
+        result += [j + [i] for j in result]
+        result.append([i])
+    return len(list(filter(lambda x: x[0] > x[1], (filter(lambda x: len(x) == 2, result)))))
