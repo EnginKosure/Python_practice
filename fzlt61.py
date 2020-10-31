@@ -15,3 +15,12 @@ def f_inversion(nums):
         result += [j + [i] for j in result]
         result.append([i])
     return len(list(filter(lambda x: x[0] > x[1], (filter(lambda x: len(x) == 2, result)))))
+
+
+def f_inversion1(nums):
+    count = 0
+    for i in range(len(nums)-1):
+        for j in range(i+1, len(nums)):
+            if nums[i] > nums[j]:
+                count += 1
+    return count
