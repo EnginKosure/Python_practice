@@ -11,3 +11,7 @@ def rand5():
 def rand7():
     x = 5*(rand5()-1) + rand5() - 1
     return x % 7 + 1 if x < 21 else rand7()
+
+
+def rand7_v2():
+    return (rand5() + rand5() + rand5() + rand5()) % 7+1
