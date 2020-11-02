@@ -24,3 +24,7 @@ function solve(a) {
 };
 
 console.log(solve([5, 15, 16, 10, 6, 4, 16, 't', 13, 'n', 14, 'k', 'n', 0, 'q', 'd', 7, 9]), 2);
+
+function solve1(a) {
+    return a.reduce(((x, y) => Number.isInteger(y) ? (y % 2 === 0 ? x + 1 : x - 1) : x), 0);
+}
