@@ -14,3 +14,7 @@ def highest_profit(arr):
 
 
 highest_profit([9, 11, 8, 5, 7, 10])
+
+
+def m_profit2(prices):
+    return 0 if len(prices) < 2 else max(0, max([max(prices[i+1:]) - prices[i] for i in range(len(prices)-1)]))
