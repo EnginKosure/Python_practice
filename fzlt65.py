@@ -14,3 +14,11 @@ nums = [2, 7, 11, 15]
 target = 9
 
 print(sum_up(nums, target))  # [0, 1]
+
+
+def sum_up2(nums, target):
+    d = {}
+    for i in range(len(nums)):
+        if target-nums[i] in d:
+            return [d[target-nums[i]], i]
+        d[nums[i]] = i
