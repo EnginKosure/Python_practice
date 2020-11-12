@@ -15,3 +15,17 @@ def convert3(s, numRows):
         table[r] += i
         r += dir
     return "".join(table)
+
+
+# try:
+#     Input: s = "PAYPALISHIRING", numRows = 4
+# Output: "PINALSIGYAHRPI"
+# Explanation:
+# P     I    N
+# A   L S  I G
+# Y A   H R
+# P     I
+# except expression as identifier:
+#     pass
+# else:
+#     pass
