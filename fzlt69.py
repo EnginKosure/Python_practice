@@ -6,8 +6,7 @@
 # except the number 0 itself.
 
 def incr(arr):
-    print(int((''.join([str(n) for n in arr])))+1)
-    # return int(','.join(arr))+1
+    return int(''.join([str(n) for n in arr]))+1
 
 
 print(incr([9, 9]))
