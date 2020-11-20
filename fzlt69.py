@@ -10,3 +10,4 @@ def incr(arr):
 
 
 print(incr([9, 9]))
+print(incr([1, 2, 3]))
