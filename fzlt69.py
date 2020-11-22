@@ -11,3 +11,10 @@ def incr(arr):
 
 print(incr([9, 9]))
 print(incr([1, 2, 3]))
+
+
+print("41" + "3")
+print("Hello" + "!")
+text = "my name is Agent Smith"
+extracted_text = text[12:16]
+print(extracted_text)
