@@ -15,3 +15,11 @@ def find_majority(arr):
 
 find_majority([2, 2, 1, 1, 1, 2, 2])
 find_majority([3, 2, 3])
+
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        x = set(nums)
+        for i in x:
+            if nums.count(i) > len(nums)/2:
+                return i

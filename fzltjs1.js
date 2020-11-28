@@ -32,6 +32,3 @@ function calculateMoney(money) {
     return (result)
 }
 console.log(calculateMoney(7121))
-
-console.log(process.env.VAR)
-const EventEmitter = require('events')
