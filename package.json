@@ -1,0 +1,10 @@
+{
+  "name": "a",
+  "version": "1",
+  "description": "test",
+  "main": "index.js",
+  "repository": "https://github.com/EnginKosure/Python_practice.git",
+  "author": "EnginKosure <engin.kosure@cronos.be>",
+  "license": "MIT",
+  "private": false
+}
