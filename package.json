@@ -6,5 +6,8 @@
   "repository": "https://github.com/EnginKosure/Python_practice.git",
   "author": "EnginKosure <engin.kosure@cronos.be>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "cowsay": "^1.4.0"
+  }
 }
