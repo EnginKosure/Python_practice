@@ -35,3 +35,8 @@ for i in filter(lambda x: x is not np.nan, [x if "-" in x else np.nan for x in l
 # Another approach with regex
 with open('file.txt', 'r') as f:
     print("".join([i for i in f.readlines() if re.comp
+
+
+# Solution with bash
+
+# grep - P '^(\d{3}-\d{3}-\d{4}|\(\d{3}\) \d{3}-\d{4})$' file.txt
