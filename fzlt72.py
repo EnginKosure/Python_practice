@@ -13,6 +13,8 @@
 # (123) 456-7890
 
 
+import pandas as pd
+import numpy as np
 import re
 # (123) 456-7890
 wanted_format_1 = "^[(]{1}[0-9]{3}[)]{1}[\s]{1}[0-9]{3}[-]{1}[0-9]{4}$"
@@ -25,3 +27,7 @@ with open("phonenumbers.txt", "r", encoding="utf-8") as file:
         ok_2 = re.search(wanted_format_2, number)
         if ok_1 or ok_2:
             print(number)
+
+
+for i in filter(lambda x: x is not np.nan, [x if "-" in x else np.nan for x in list(
+    pd.read_csv("deneme.TXT", sep="\n", header=None)[0])]): print(i)
