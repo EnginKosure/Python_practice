@@ -31,3 +31,7 @@ with open("phonenumbers.txt", "r", encoding="utf-8") as file:
 
 for i in filter(lambda x: x is not np.nan, [x if "-" in x else np.nan for x in list(
     pd.read_csv("deneme.TXT", sep="\n", header=None)[0])]): print(i)
+
+# Another approach with regex
+with open('file.txt', 'r') as f:
+    print("".join([i for i in f.readlines() if re.comp
