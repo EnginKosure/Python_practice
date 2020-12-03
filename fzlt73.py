@@ -6,3 +6,21 @@
 # which does not include 1. Those numbers for which this process
 # ends in 1 are happy numbers.
 # Return True if n is a happy number, and False if not.
+
+def happy(n):
+    answer = []
+    while n != 1:
+        summ = 0
+        for i in str(n):
+            summ += int(i)**2
+        if summ in answer:
+            return False
+        else:
+            print('sum', summ)
+            answer.append(summ)
+        n = summ
+    return True
+
+
+print(happy(20))  # False
+print(happy(19))
