@@ -1,7 +1,7 @@
 const number = 12;
 function convertDecimalToBinary(number) {
-    var binary = "";
-    var temp = number;
+    let binary = "";
+    let temp = number;
     while (temp > 0) {
         if (temp % 2 == 0) {
             binary = "0" + binary;
