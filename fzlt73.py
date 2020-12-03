@@ -16,7 +16,7 @@ def happy(n):
         if summ in answer:
             return False
         else:
-            print('sum', summ)
+            # print('sum', summ)
             answer.append(summ)
         n = summ
     return True
