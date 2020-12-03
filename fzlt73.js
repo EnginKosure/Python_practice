@@ -1,9 +1,8 @@
 const number = 12;
 function convertDecimalToBinary(number) {
     let binary = "";
-    let temp = number;
-    while (temp > 0) {
-        if (temp % 2 == 0) {
+    while (number > 0) {
+        if (number % 2 == 0) {
             binary = "0" + binary;
             console.log('binary-2yebolunuyorsa', binary);
         }
@@ -12,7 +11,7 @@ function convertDecimalToBinary(number) {
             console.log('binary-2yebolunmuyorsa', binary);
 
         }
-        temp = Math.floor(temp / 2);
+        number = Math.floor(number / 2);
     }
     return binary;
 }
