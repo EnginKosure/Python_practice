@@ -9,4 +9,13 @@ function binaryToDecimal(binaryNumber) {
     }
     return total;
 }
-console.log(binaryToDecimal("1111"))
+// console.log(binaryToDecimal("1111"))
+
+function binary_to_decimal(bstring) {
+    console.log(bstring.slice(-1));
+    if (bstring.length == 0) {
+        return 0
+    }
+    return binary_to_decimal(bstring.slice(0, -1)) * 2 + (bstring.slice(-1) == '1')
+}
+console.log(binary_to_decimal("111"))
