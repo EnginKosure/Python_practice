@@ -15,7 +15,7 @@ function convertDecimalToBinary(number) {
     }
     return binary;
 }
-console.log(convertDecimalToBinary(number));//1001000
+console.log(convertDecimalToBinary(number));//1100
 
 const decToBi = num => num === 0 ? 0 : num % 2 + 10 * decToBi(Math.floor(num / 2));
 console.log(decToBi(10)); //1010
