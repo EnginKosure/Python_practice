@@ -20,4 +20,4 @@ function binaryToDecimal(binaryNumber) {
 // }
 
 const b_t_d = bs => bs.length == 0 ? 0 : b_t_d(bs.slice(0, -1)) * 2 + (bs.slice(-1) == '1');
-console.log(b_t_d("1"))
+console.log(b_t_d("11"))
