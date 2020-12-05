@@ -10,3 +10,13 @@ def are_parallel_lines(l1, l2):
             return True
         else:
             return False
+
+
+print(are_parallel_lines([1, 2, 3], [1, 2, 4]))  # ➞ True
+# x+2y=3 and x+2y=4 are parallel.
+
+print(are_parallel_lines([2, 4, 1], [4, 2, 1]))  # ➞ False
+# 2x+4y=1 and 4x+2y=1 are not parallel.
+
+print(are_parallel_lines([0, 1, 5], [0, 1, 5]))  # ➞ True
+# Lines are parallel to themselves.
