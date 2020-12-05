@@ -11,6 +11,12 @@ def are_parallel_lines(l1, l2):
         else:
             return False
 
+# Can be shortened like this:
+
+
+def lines_are_parallel(l1, l2):
+    return l1[0:2] == l2[0:2] or l1[0]/l2[0] == l1[1]/l2[1]
+
 
 print(are_parallel_lines([1, 2, 3], [1, 2, 4]))  # ➞ True
 # x+2y=3 and x+2y=4 are parallel.
