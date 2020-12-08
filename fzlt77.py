@@ -9,3 +9,10 @@
 # You may want to import socket.
 # Don't cheat and just print the domain name, you need to make a real DNS request.
 # Return as a string.
+
+
+import socket
+
+name, alias, addresslist = socket.gethostbyaddr('208.67.222.222')
+print(name)
+# 'resolver1.opendns.com
