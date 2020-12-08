@@ -13,6 +13,16 @@
 
 import socket
 
-name, alias, addresslist = socket.gethostbyaddr('208.67.222.222')
-print(name)
-# 'resolver1.opendns.com
+name, alias, addresslist = socket.gethostbyaddr('8.8.8.8')
+# print(name)
+# 'dns.google'
+
+
+def get_domain(s):
+    name, _, _ = socket.gethostbyaddr(s)
+    print(name)
+
+
+get_domain("8.8.8.8")  # "dns.google"
+
+get_domain("8.8.4.4")  # "dns.google"
