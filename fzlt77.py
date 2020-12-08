@@ -21,6 +21,7 @@ name, alias, addresslist = socket.gethostbyaddr('8.8.8.8')
 def get_domain(s):
     name, _, _ = socket.gethostbyaddr(s)
     print(name)
+    # return socket.gethostbyaddr(ip_address)[0]
 
 
 get_domain("8.8.8.8")  # "dns.google"
