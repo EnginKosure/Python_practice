@@ -13,3 +13,8 @@ print(sum_primes([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))  # 17
 print(sum_primes([2, 3, 4, 11, 20, 50, 71]))  # 87
 
 print(sum_primes([]))  # None
+
+
+def sum_primes2(l):
+    def p(x): return 2 in [x, 2**x % x]
+    return sum(filter(p, l)) if l else None
