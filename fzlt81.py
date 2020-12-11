@@ -8,15 +8,11 @@
 # If any doubts please refer to the comments section.
 
 def two_product(arr, n):
-    x = [int(n/i) for i in arr if n/i in arr]
-
-    if len(x) == 0:
-        return None
-    return x
+    return [int(n/i) for i in arr if n/i in arr]
 
 
 print(two_product([1, 2, -1, 4, 5], 20))  # [4, 5]
 
 print(two_product([1, 2, 3, 4, 5], 10))  # [2, 5]
 
-print(two_product([100, 12, 4, 1, 2], 15))  # None
+print(two_product([100, 12, 4, 1, 2], 15))  # []
