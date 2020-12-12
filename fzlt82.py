@@ -3,7 +3,8 @@ from fractions import Fraction as frac
 
 
 def simplify(st):
-    print(frac(st))
+    # print(frac(st))
+    return frac(st)
 
 
 # Examples
@@ -14,6 +15,7 @@ simplify("10/11")  # "10/11"
 simplify("100/400")  # "1/4"
 
 simplify("8/4")  # "2"
+simplify("5/45")
 # Notes
 # A fraction is simplified if there are no common factors (except 1) between
 # the numerator and the denominator. For example, 4/6 is not simplified, since 4 and 6 both share 2 as a factor.
