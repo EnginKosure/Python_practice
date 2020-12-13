@@ -2,8 +2,8 @@
 # with the items from the original list stored into sublists. Items of the same
 # value should be in the same sublist.
 
-def advanced_sort(arr):
-    return sorted(arr)
+def advanced_sort(lst):
+    return [[i] * lst.count(i) for i in sorted(set(lst), key=lst.index)]
 
 
 print(advanced_sort([2, 1, 2, 1]))  # [[2, 2], [1, 1]]
