@@ -2,9 +2,13 @@
 # with the items from the original list stored into sublists. Items of the same
 # value should be in the same sublist.
 
-# Examples
-# advanced_sort([2, 1, 2, 1]) ➞ [[2, 2], [1, 1]]
+def advanced_sort(arr):
+    return sorted(arr)
 
-# advanced_sort([5, 4, 5, 5, 4, 3]) ➞ [[5, 5, 5], [4, 4], [3]]
 
-# advanced_sort(["b", "a", "b", "a", "c"]) ➞ [["b", "b"], ["a", "a"], ["c"]]
+print(advanced_sort([2, 1, 2, 1]))  # [[2, 2], [1, 1]]
+
+print(advanced_sort([5, 4, 5, 5, 4, 3]))  # [[5, 5, 5], [4, 4], [3]]
+
+# [["b", "b"], ["a", "a"], ["c"]]
+print(advanced_sort(["b", "a", "b", "a", "c"]))
