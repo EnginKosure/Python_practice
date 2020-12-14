@@ -17,3 +17,9 @@ print(min_length([3, -1, 4, -2, -7, 2], 4))  # 3
 print(min_length([1, 0, 0, 0, 1], 1))  # 5
 
 print(min_length([0, 1, 1, 0], 2))  # -1
+
+
+def min_length1(lst, n):
+    res = sorted([j-i for i in range(len(lst))
+                  for j in range(i, len(lst)+1) if sum(lst[i:j]) > n])
+    return res[0] if res else -1
