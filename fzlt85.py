@@ -1,7 +1,7 @@
 # Create a function that returns a list containing the prime factors
 # of whatever integer is passed to it.
 
-def prime_factors(n: int) -> List[int]:
+def prime_factors(n):
     a = []
     while n % 2 == 0:
         a.append(2)
@@ -14,7 +14,7 @@ def prime_factors(n: int) -> List[int]:
         else:
             f += 2
     if n != 1:
-        a.append(n)
+        a.append(int(n))
     # Only odd number is possible
     return a
 
