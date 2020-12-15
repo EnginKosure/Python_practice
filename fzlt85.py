@@ -21,6 +21,16 @@ def prime_factors(n):
 
 print(prime_factors(20))  # [2, 2, 5]
 
-prime_factors(100)  # [2, 2, 5, 5]
+print(prime_factors(100))  # [2, 2, 5, 5]
 
-prime_factors(8912234)  # [2, 47, 94811]
+print(prime_factors(8912234))  # [2, 47, 94811]
+
+
+def prime_factors2(num):
+    output = []
+    for i in range(2,  int(num/2)):
+        while num % i == 0:
+            output.append(i)
+            num = int(num / i)
+
+    return output
