@@ -1,3 +1,6 @@
+f = open('fzlt86.txt', 'r')
+
+
 def find_pass(s):
     counter = 0
     x = s.split(':')
@@ -17,4 +20,8 @@ def find_pass(s):
     return counter
 
 
-find_pass('2-4 f: cfkmf')
+c = 0
+for a in f:
+    if find_pass(a) > 0:
+        c += 1
+print("c", c)
