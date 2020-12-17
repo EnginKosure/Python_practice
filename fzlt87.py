@@ -1,8 +1,18 @@
+from itertools import combinations
 f = open('fzlt87.txt', 'r')
+
+
+def test(val):
+    return sum(val) == 2020
 
 
 def find_num(n):
     return 2020-int(n)
+
+
+def find_num2(n):
+    x = 2020-int(n)
+    return x
 
 
 c = 0
@@ -10,8 +20,6 @@ l = []
 for a in f:
     l.append(int(a))
 
-    x = find_num(a)
-    if x in l:
-        print(x)
-        c = x*(2020-x)
-print("c", c)
+res = list(filter(test, list(combinations(l, 3))))
+print("res", res)
+print(res[0][0]*res[0][1]*res[0][2])
