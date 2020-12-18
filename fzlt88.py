@@ -6,7 +6,8 @@ pos = 0
 ln = 0
 for i in f:
     ln += 1
-    pos += 3
+    if ln % 2:
+        pos += 3
     if pos > len(i):
         pos = 0
         print('t-e', t, e)
