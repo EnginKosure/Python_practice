@@ -10,7 +10,7 @@ for i in f:
     if pos > len(i):
         pos = 0
         print('t-e', t, e)
-    if i[pos] == '#':
+    if ln != 1 and i[pos] == '#':
         t += 1
     else:
         e += 1
