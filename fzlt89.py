@@ -1,20 +1,13 @@
 import re
 
 
-def remove_virus(s):
-    # print(s.split())
-    a = s.split()
-    pattern1 = '\**virus*'
-    pattern2 = '\**malware*'
-    for i in a:
-        if re.search(pattern1, i) or re.search(pattern2, i):
-            print(a.index(i))
-            del a[a.index(i)]
+def remove_virus(files):
+    safe = [f for f in files[10:].split(", ") if f and not re.fullmatch(
+        r"(?!not|anti).*(virus|malware)\.exe", f)]
+    return "PC Files: %s" % (", ".join(safe) if safe else "Empty")
 
-    print(a)
-    return a
 
-    # "PC Files: spotifysetup.exe, dog.jpg"
+# "PC Files: spotifysetup.exe, dog.jpg"
 remove_virus("PC Files: spotifysetup.exe, virus.exe, dog.jpg")
 
 # "PC Files: antivirus.exe, cat.pdf"
