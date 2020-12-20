@@ -1,0 +1,15 @@
+-- Create a new table called 'table_1' in schema 'SchemaName'
+-- Drop the table if it already exists
+IF OBJECT_ID('SchemaName.table_1', 'U') IS NOT NULL
+DROP TABLE SchemaName.table_1
+GO
+-- Create the table in the specified schema
+CREATE TABLE SchemaName.table_1
+(
+    table_1Id INT NOT NULL PRIMARY KEY,
+    -- primary key column
+    Column1 [NVARCHAR](50) NOT NULL,
+    Column2 [NVARCHAR](50) NOT NULL
+    -- specify more columns here
+);
+GO
