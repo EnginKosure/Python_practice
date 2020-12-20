@@ -6,12 +6,13 @@ def remove_virus(files):
         r"(?!not|anti).*(virus|malware)\.exe", f)]
     return "PC Files: %s" % (", ".join(safe) if safe else "Empty")
 
-    def remove_virus1(files):
-        items = files.split(': ')[1].split(', ')
-        valid = [item for item in items if
-                 not re.match(r'^(?!anti)(?!not).*virus\.\w+', item) and
-                 not re.match(r'.*malware\.\w+', item)]
-        return "PC Files: " + (', '.join(valid) if valid else 'Empty')
+
+def remove_virus1(files):
+    items = files.split(': ')[1].split(', ')
+    valid = [item for item in items if
+             not re.match(r'^(?!anti)(?!not).*virus\.\w+', item) and
+             not re.match(r'.*malware\.\w+', item)]
+    return "PC Files: " + (', '.join(valid) if valid else 'Empty')
 
 
 # "PC Files: spotifysetup.exe, dog.jpg"
