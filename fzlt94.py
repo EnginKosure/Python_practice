@@ -6,3 +6,12 @@ for i in strs:
     else:
         anag["".join(sorted(i))] = [i]
 print(list(anag.values()))
+
+
+strings = ["eat", "tea", "tan", "ate", "nat", "bat"]
+result = []
+for j in strings:
+    item = [x for x in strings if sorted(j) == sorted(x)]
+    if item not in result:
+        result.append(item)
+print(result)

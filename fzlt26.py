@@ -15,8 +15,9 @@ def group_anagrams(input):
         if key in my_dict.keys():
             my_dict[key].append(s)
         else:
-            my_dict[key] = []
-            my_dict[key].append(s)
+            # my_dict[key] = []
+            # my_dict[key].append(s)
+            my_dict[key] = [s]
 
     output = []
 
