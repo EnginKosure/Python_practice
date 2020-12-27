@@ -37,7 +37,7 @@ a = ["eat", "tea", "tan", "ate", "nat", "bat"]
 b = {}
 for i in a:
     x = "".join(sorted(i))
-    if x not in b.keys():
+    if x not in b:
         b[x] = []
     b[x].append(i)
 print(list(b.values()))
