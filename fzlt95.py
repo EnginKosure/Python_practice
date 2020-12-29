@@ -3,7 +3,7 @@
 # add 5
 # multiply by 3
 # You should say if it is possible to reach the target number n.
-# def d(x, y, res=0, c=1): return res if x < y else d(x-y, y, res+c, c)
+# def d(x, y, res=0, c=1): return res if x < y else d(x-y, y, res+c, c) #49
 def only_5_and_3(n):
     if n < 3:
         return False
