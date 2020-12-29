@@ -4,6 +4,10 @@
 # multiply by 3
 # You should say if it is possible to reach the target number n.
 
+def only_5_and_3(n):
+    return [True if n % 3 == 0 or n-5 == 0 else only_5_and_3(n-3)]
+
+
 only_5_and_3(14)  # True
 # 14 = 3*3 + 5
 
