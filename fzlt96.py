@@ -14,3 +14,7 @@ Dictionary is the standard and commonly used mapping type in Python.
 
 program = 'a = 5\nb=10\nprint("Sum =", a+b)'
 exec(program)  # Sum = 15
+
+
+x = input('Enter a program:')
+exec(x)
