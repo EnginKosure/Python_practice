@@ -5,14 +5,18 @@
 # [[a]] = 2 depth
 # [[[a]]] = 3 depth, etc
 
-def deepest(a):
-    x = str(a)
-    t = x.split(']')
-    print("t", t[0].count('['))
+def deepest(lst):
+    if type(lst) != list:
+        return 0
+    y = [deepest(e) for e in lst]
+    print(y)
+    return 1 + max(deepest(e) for e in lst)
 
 
-deepest([1, [2, 3], 4, [5, 6]])  # 2
+# deepest([1, [2, 3], 4, [5, 6]])  # 2
 
-deepest([[[[[[[[[[1]]]]]]]]]])  # 10
+# deepest([[[[[[[[[[1]]]]]]]]]])  # 10
 
-deepest([1, 4, [1, 4, [1, 4, [1, 4, [5]]]]])  # 5
+# deepest([1, 4, [1, 4, [1, 4, [1, 4, [5]]]]])  # 5
+
+deepest([[2, 3], 4, [6, 7, [8]]])
