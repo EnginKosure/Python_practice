@@ -4,6 +4,14 @@
 # [a] = 1 depth
 # [[a]] = 2 depth
 # [[[a]]] = 3 depth, etc
+
+def deepest(a):
+    x = str(a)
+    print(x)
+    y = x.count('[')
+    print(y)
+
+
 deepest([1, [2, 3], 4, [5, 6]])  # 2
 
 deepest([[[[[[[[[[1]]]]]]]]]])  # 10
