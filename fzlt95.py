@@ -22,3 +22,11 @@ print(only_5_and_3(25))  # True
 
 print(only_5_and_3(7))  # False
 # There exists no path to the target number 7
+
+
+def only5and3(n):
+    while n >= 0:
+        if n != 1 and (n == 0 or log(n, 3).is_integer()):
+            return True
+        n -= 5
+    return False
