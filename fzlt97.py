@@ -7,9 +7,8 @@
 
 def deepest(a):
     x = str(a)
-    print(x)
-    y = x.count('[')
-    print(y)
+    t = x.split(']')
+    print("t", t[0].count('['))
 
 
 deepest([1, [2, 3], 4, [5, 6]])  # 2
