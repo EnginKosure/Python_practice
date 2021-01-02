@@ -8,7 +8,7 @@
 def deepest(lst):
     if type(lst) != list:
         return 0
-    y = [deepest(e) for e in lst]
+    y = [e for e in lst]
     print(y)
     return 1 + max(deepest(e) for e in lst)
 
