@@ -2,6 +2,12 @@ lst, p = [1, 2, 3, 4], [[]]
 for _ in lst:
     p = [[a] + b for a in lst for b in p if a not in b]
 print(p)
+# Second approach with explanation
+# lst = [1,2,3]
+# r = [[]]
+# for _ in lst:
+#     r = [i + [j] for i in r for j in lst if j not in i]
+# print(r)
 # Boş bir permütasyon listesi oluşturup bize verilen listedeki elemanları bu listeye ekleyerek yeni permütasyon listesi oluşturuyoruz. Bu işlemi de listenin eleman sayısı kadar tekrar ediyoruz.
 # Başlangıçta r = [[]] boş bir dizi
 # Bana verilen dizi lst = [1,2,3]
