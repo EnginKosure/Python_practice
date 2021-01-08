@@ -1,6 +1,6 @@
 input = 'abrkaabcdefghijjxxx'
 y = {}
-for i in range(len(input)):
+for _ in input:
     counter = 0
     a = ""
     for i in range(len(input)):
