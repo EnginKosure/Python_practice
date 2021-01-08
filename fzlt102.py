@@ -3,7 +3,7 @@ y = {}
 for _ in input:
     counter = 0
     a = ""
-    for i in range(len(input)):
+    for _ in input:
         if input[counter] not in a:
             a = a + input[counter]
             counter += 1
