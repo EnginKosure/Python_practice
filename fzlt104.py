@@ -8,6 +8,10 @@ def list_of_multiples(x, y):
     return a
 
 
+def list_of_multiples1(num, length):
+    return [i*num for i in range(1, length+1)]
+
+
 list_of_multiples(7, 5)  # [7, 14, 21, 28, 35]
 
 list_of_multiples(12, 10)  # [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
