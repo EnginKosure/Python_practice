@@ -1,3 +1,13 @@
+def list_of_multiples(x, y):
+    a = []
+    b = x
+    for i in range(y):
+        a.append(b)
+        b += x
+    print(a)
+    return a
+
+
 list_of_multiples(7, 5)  # [7, 14, 21, 28, 35]
 
 list_of_multiples(12, 10)  # [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
