@@ -1,4 +1,4 @@
-def long_palin(txt):
+def long_palindrom(txt):
     a = []
     for i in range(len(txt)):
         for j in range(len(txt)-i):
@@ -9,4 +9,4 @@ def long_palin(txt):
     return(sorted(a, key=len, reverse=True)[0])
 
 
-print(long_palin("million"))
+print(long_palindrom("million"))
