@@ -23,3 +23,7 @@ print(bonus(50))  # 8200
 
 def bonus1(days):
     return sum(0 if i < 32 else 325 if i < 40 else 550 if i < 48 else 600 for i in range(days))
+
+
+def bonus2(days):
+    return 325*max(0, days-32) + 225*max(0, days-40) + 50*max(0, days-48)
