@@ -11,7 +11,7 @@ def bonus(x):
     elif x < 48:
         return (x-40)*550
     else:
-        return (x-48)*600 + (x-40)*550
+        return (x-48)*600 + (8)*550+(8)*325
 
 
 print(bonus(15))  # 0
