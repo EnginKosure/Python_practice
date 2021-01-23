@@ -8,15 +8,15 @@ def sentence_searcher(t, w):
     l = t.lower()
     arr = t.split('.')
     # print(arr)
-    for i in arr.lower():
-        if i.find(w.lower()) != -1:
+    for i in arr:
+        if i.lower().find(w.lower()) != -1:
             print(i)
             return i
         else:
             return ''
 
 
-# sentence_searcher(txt, "have")  # "I have a cat."
+sentence_searcher(txt, "have")  # "I have a cat."
 
 sentence_searcher(txt, "MAT")  # "I have a mat."
 
