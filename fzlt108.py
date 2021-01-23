@@ -5,20 +5,16 @@ txt = "I have a cat. I have a mat. Things are going swell."
 
 
 def sentence_searcher(t, w):
-    l = t.lower()
     arr = t.split('.')
-    # print(arr)
     for i in arr:
-        if i.lower().find(w.lower()) != -1:
-            print(i)
+        if w.lower() in i.lower():
             return i
-        else:
-            return ''
+    return ''
 
 
 sentence_searcher(txt, "have")  # "I have a cat."
 
-sentence_searcher(txt, "MAT")  # "I have a mat."
+sentence_searcher(txt, "mat")  # "I have a mat."
 
 sentence_searcher(txt, "things")  # "Things are going swell."
 
