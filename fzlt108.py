@@ -8,7 +8,7 @@ def sentence_searcher(t, w):
     arr = t.split('.')
     for i in arr:
         if w.lower() in i.lower():
-            return i
+            return i.strip()+'.'
     return ''
 
 
@@ -19,3 +19,11 @@ sentence_searcher(txt, "mat")  # "I have a mat."
 sentence_searcher(txt, "things")  # "Things are going swell."
 
 sentence_searcher(txt, "flat")  # ""
+
+
+def sentence_searcher1(s, word):
+    lst = s[:-1].split(". ")
+    for st in lst:
+        if word.lower() in st.lower():
+            return "{}.".format(st)
+    return ""
