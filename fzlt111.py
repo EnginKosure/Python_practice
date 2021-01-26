@@ -1,9 +1,6 @@
 def swap(a, b, c):
-    d = tuple(set((a, b, c)))
-    e = (a, b, c)
-    print(d)
-    print(e)
-    # print(e ^ d)
+    print(a+b-c)
+    return a + b - c
 
 
 swap(1, 0, 0)  # 1
