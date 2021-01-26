@@ -18,3 +18,7 @@ swap(27, 31, 31)  # 27
 
 def swap1(a, b, c):
     return a ^ b ^ c
+
+
+def swap2(a, b, c):
+    return b*(a == c) + a*(b == c)
