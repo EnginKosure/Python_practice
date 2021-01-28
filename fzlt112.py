@@ -10,8 +10,14 @@ def two_product(l, n):
     return None
 
 
-print(two_product([1, 2, -1, 4, 5], 20))  # [4, 5]
+def two_product1(l, n):
+    for x in l:
+        if n/x in l and l.index(x) > l.index(n/x):
+            return[int(n/x), x]
 
-print(two_product([1, 2, 3, 4, 5], 10))  # [2, 5]
 
-print(two_product([100, 12, 4, 1, 2], 15))  # None
+print(two_product1([1, 2, -1, 4, 5], 20))  # [4, 5]
+
+print(two_product1([1, 2, 3, 4, 5], 10))  # [2, 5]
+
+print(two_product1([100, 12, 4, 1, 2], 15))  # None
