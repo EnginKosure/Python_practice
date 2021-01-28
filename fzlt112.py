@@ -5,7 +5,9 @@ def two_product(l, n):
     s_x = set(x)
     s_l = set(l)
     intersection = s_x.intersection(s_l)
-    return(list(intersection))
+    if len(intersection) >= 2:
+        return(list(intersection))
+    return None
 
 
 print(two_product([1, 2, -1, 4, 5], 20))  # [4, 5]
