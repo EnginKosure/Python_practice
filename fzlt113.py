@@ -19,3 +19,12 @@ class Employee:
         self.full_name = full_name
         self.name, self.lastname = full_name.split()
         self.__dict__.update(kwargs)
+
+
+class Employee1:
+
+    def __init__(self, full_name, **kwargs):
+        self.full_name = full_name
+        self.name, self.lastname = full_name.split()
+        for k, v in kwargs.items():
+            setattr(self, k, v)
