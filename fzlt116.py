@@ -18,3 +18,9 @@ remove_virus(
     "PC Files: antivirus.exe, cat.pdf, lethalmalware.exe, dangerousvirus.exe ")
 
 remove_virus("PC Files: notvirus.exe, funnycat.gif")  # "PC Files: notvirus.
+
+
+def remove_virus1(files):
+    f = ', '.join([i for i in files[10:].replace(',', '').split(
+    ) if 'anti' in i or 'not' in i or 'virus' not in i and 'malware' not in i])
+    return 'PC Files: ' + f if f else 'PC Files: Empty'
