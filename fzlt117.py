@@ -7,6 +7,7 @@
 # If the first cell is locked, you cannot free anyone. Each time you free a prisoner,
 # the locked cells become unlocked, and the unlocked cells become locked again.
 
+from itertools import groupby
 [1, 1, 0, 0, 0, 1, 0]
 # You free the prisoner in the 1st cell.
 
@@ -34,3 +35,8 @@ freed_prisoners([1, 1, 1])  # 1
 freed_prisoners([0, 0, 0])  # 0
 
 freed_prisoners([0, 1, 1, 1])  # 0
+
+
+def freed_prisoners2(prison):
+    freed = [k for k, _ in groupby(prison)]
+    return len(freed) if freed[0] == 1 else 0
