@@ -40,3 +40,13 @@ freed_prisoners([0, 1, 1, 1])  # 0
 def freed_prisoners2(prison):
     freed = [k for k, _ in groupby(prison)]
     return len(freed) if freed[0] == 1 else 0
+
+
+def freed_prisoners3(prison):
+    if prison[0] == 0:
+        return(0)
+    count = 1
+    for i in range(1, len(prison)):
+        if prison[i] != prison[i-1]:
+            count += 1
+    return(count)
