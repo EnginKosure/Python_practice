@@ -15,3 +15,15 @@ print(x)
 
 # Create a function, that takes an integer (radius of the circle) and returns
 # the difference of the areas of the two squares.
+
+
+def find_Area(r):
+    # print((2 * r * r))
+    return (2 * r * r)
+
+
+find_Area(5)  # 50
+
+find_Area(6)  # 72
+
+find_Area(7)  # 98
