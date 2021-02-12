@@ -1,3 +1,8 @@
+def reversible_inclusive_list(n, m):
+    s = -1 if n > m else 1
+    return list(range(n, m+s, s))
+
+
 reversible_inclusive_list(1, 5)  # [1, 2, 3, 4, 5]
 
 reversible_inclusive_list(2, 8)  # [2, 3, 4, 5, 6, 7, 8]
