@@ -1,3 +1,7 @@
+def invert(d):
+    return {v: k for k, v in d.items()}
+
+
 invert({"z": "q", "w": "f"})
 # { "q": "z", "f": "w" }
 
