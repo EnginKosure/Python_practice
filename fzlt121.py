@@ -18,6 +18,6 @@ def line_length(a1, a2):
 
 print(line_length([15, 7], [22, 11]))  # 8.06
 
-line_length([0, 0], [0, 0])  # 0
+print(line_length([0, 0], [0, 0]))  # 0
 
-line_length([0, 0], [1, 1])  # 1.41
+print(line_length([0, 0], [1, 1]))  # 1.41
