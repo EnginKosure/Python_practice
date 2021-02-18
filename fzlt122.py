@@ -11,6 +11,7 @@
 # ]
 
 
+import array as arr
 n = 3
 r = ["()"]
 for _ in range(n-1):
@@ -23,3 +24,8 @@ print(2**2**2**2)
 a = 1
 b = ++a
 print(b is a)
+
+My_Array = arr.array('i', [1, 2, 3, 4])
+My_list = [1, 'abc', 1.20]
+print(My_Array)
+print(My_list)
