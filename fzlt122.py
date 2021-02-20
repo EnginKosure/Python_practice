@@ -47,3 +47,10 @@ exp_table(5)
 
 def stupid_addition(a, b):
     return None if type(a) != type(b) else str(a) + str(b) if type(a) == int else int(a) + int(b)
+
+
+stupid_addition(1, 2)  # "12"
+
+stupid_addition("1", "2")  # 3
+
+stupid_addition("1", 2)  # None
