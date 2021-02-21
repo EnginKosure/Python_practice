@@ -68,3 +68,7 @@ find_vertex(-1, 0, 25)  # [0, 25]
 
 find_vertex(1, 10, 4)  # [-5, -21]
 # The vertex of y=x²+10x+4 is at (-5, -21).
+
+
+def find_vertex1(a, b, c):
+    return [round((-1*b)/(2*a), 2), round((4*a*c - b*b)/(4*a), 2)]
