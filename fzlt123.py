@@ -1,5 +1,6 @@
 # Create a function that takes the side n of the game screen and returns the number of times the snake can eat
 # before it runs out of space in the game screen.
+import pywhatkit as kit
 from math import floor, log2
 
 
@@ -16,3 +17,6 @@ snakefill(24)  # 9
 
 def snakefill2(n):
     return floor(log2(n*n))
+
+
+kit.sendwhatmsg('+32493784070', 'test with python', 22, 35)
