@@ -19,4 +19,4 @@ def snakefill2(n):
     return floor(log2(n*n))
 
 
-kit.sendwhatmsg('+32493784070', 'test with python', 22, 35)
+kit.sendwhatmsg('+3**********', 'test with python', 22, 48)
