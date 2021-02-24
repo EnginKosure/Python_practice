@@ -26,3 +26,7 @@ wiki_val1 = wikipedia.search("Barack Obama")
 print(wiki_val1)
 wiki_val2 = wikipedia.search("Ford", results=3)
 print(wiki_val2)
+
+wiki_val3 = wikipedia.languages()
+
+print(wiki_val3['tr'])
