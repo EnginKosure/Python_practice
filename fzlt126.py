@@ -24,3 +24,12 @@ def find_lcm():
                 n = n//carp
                 m = m*carp
     return m
+
+
+def takeSecond(elem):
+        return elem[1]
+    P = sorted(D, key=takeSecond)
+    K = sorted(list(set([i[1] for i in P])))
+    M = sorted([i[0] for i in P if i[1] == K[1]])
+    for j in M:
+        print(j)
