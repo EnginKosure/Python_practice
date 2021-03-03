@@ -15,3 +15,7 @@ def sum_complex2(data):
 
 
 sum_complex(["3+4i"])
+
+
+def totalOvers(n):
+    return n//6 + n % 6/10
