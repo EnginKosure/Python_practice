@@ -17,5 +17,16 @@ def sum_complex2(data):
 sum_complex(["3+4i"])
 
 
-def totalOvers(n):
+def total_overs(n):
     return n//6 + n % 6/10
+
+
+total_overs(2400)  # 400
+
+total_overs(164)  # 27.2
+# 27 overs and 2 balls were bowled by the bowler.
+
+total_overs(945)  # 157.3
+# 157 overs and 3 balls were bowled by the bowler.
+
+total_overs(5)  # 0.5
