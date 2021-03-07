@@ -28,3 +28,6 @@ avg_t(**dd)
 
 def domainGet(email):
     return email.split('@')[-1]
+
+
+domainGet('user@domain.com')
