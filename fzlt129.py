@@ -24,3 +24,7 @@ dd = {'Mary': 85, 'Susan': 75, 'Barry': 65, 'Alexis': 88,
       'Jane': 45, 'Tina': 100, 'Tom': 90, 'Tim': 60}
 
 avg_t(**dd)
+
+
+def domainGet(email):
+    return email.split('@')[-1]
