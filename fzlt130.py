@@ -5,4 +5,4 @@ def within_bounds(value, low=3, high=7):
     return low <= value < high
 
 
-filter(within_bounds, a_list)
+print(list(filter(within_bounds, a_list)))
