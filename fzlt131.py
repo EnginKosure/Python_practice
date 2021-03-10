@@ -4,3 +4,7 @@ def rotate(array, k):
     length = len(array)
     k = k % length
     return array[length - k:] + array[:length - k]
+
+
+a = [1, 2, 3, 4, 5, 6, 7]
+print(rotate(a, 3))
