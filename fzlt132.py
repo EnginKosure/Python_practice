@@ -7,3 +7,10 @@ def num_split(num):
     for i in range(len(str(numb))):
         lst.append(int(str(numb)[i])*10**(len(str(numb))-1-i))
     return lst if num >= 0 else [-1*i for i in lst]
+
+
+num_split(39)  # [30, 9]
+
+num_split(-434)  # [-400, -30, -4]
+
+num_split(100)  # [100, 0, 0]
