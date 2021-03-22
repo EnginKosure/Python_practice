@@ -8,3 +8,7 @@ def dayOfProgrammer(year):
             return f'12.09.{year}'
         else:
             return f'13.09.{year}'
+
+
+print(dayOfProgrammer(2003))
+print(dayOfProgrammer(2004))
