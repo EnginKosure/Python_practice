@@ -12,4 +12,4 @@ def dayOfProgrammer(year):
 
 print(dayOfProgrammer(2003))
 print(dayOfProgrammer(2004))
-print(dayOfProgrammer(1918))
+print(dayOfProgrammer(1717))
