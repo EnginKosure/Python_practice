@@ -1,5 +1,5 @@
-# def pageCount(n, p):
-#     return min(p//2, max((n % 2 == 0)((n-p-1)//2 + 1), (n % 2 != 0)(n-p)//2))
+def pageCount1(n, p):
+    return min(p//2, max((n % 2 == 0)*((n-p-1)//2 + 1), (n % 2 != 0)*(n-p)//2))
 
 
 def pageCount(n, p):
@@ -10,3 +10,8 @@ def pageCount(n, p):
 
 
 print(pageCount(5, 4))
+print(pageCount(20, 12))
+
+
+print(pageCount1(5, 4))
+print(pageCount1(20, 12))
