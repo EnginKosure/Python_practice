@@ -12,6 +12,5 @@ def pageCount(n, p):
 print(pageCount(5, 4))
 print(pageCount(20, 12))
 
-
 print(pageCount1(5, 4))
 print(pageCount1(20, 12))
