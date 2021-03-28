@@ -9,4 +9,16 @@ export class TemplateType1{
     letterSpace?:boolean;
     colors?:Color[];
     bgColors?:Color[];
+
+    options:{
+        id?:number;
+        active:boolean;
+        title:string;
+        subOptions:{
+            id?:number;
+            description:string;
+            name:string;
+            price:number;
+        }[];
+    }[];
 }
