@@ -8,3 +8,7 @@ sum(stock_prices[::2])
 # Quicksort Python One-liner
 lambda L: [] if L == [] else qsort(
     [x for x in L[1:] if x < L[0]]) + L[0:1] + qsort([x for x in L[1:] if x >= L[0]])
+
+# Compress CSS file
+
+# python -c 'import re,sys;print re.sub("\s*([{};,:])\s*", "\\1", re.sub("/\*.*?\*/", "", re.sub("\s+", " ", sys.stdin.read())))'
