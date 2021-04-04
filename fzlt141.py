@@ -26,6 +26,7 @@ def addToInventory(inventory, addedItems):
     return inventory
 
 
+print(inv)
 inv = addToInventory(inv, dragonLoot)
 displayInventory(inv)
 print(inv)
