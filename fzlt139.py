@@ -1,3 +1,9 @@
-class Phonebook:
+class PhoneBook:
+    def __init__(self):
+        self.numbers = {}
+
     def add(self, name, number):
-        pass
+        self.numbers[name] = number
+
+    def lookup(self, name):
+        return self.numbers[name]
