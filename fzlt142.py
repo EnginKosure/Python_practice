@@ -8,3 +8,18 @@ def farey(n):
 
 
 print(farey(13))
+
+
+def farey1(n):
+    lst1 = ["0/1"]
+    lst2 = [0]
+    for i in range(1, n + 1):
+        for j in range(1, i):
+            if round(j / i, 10) in lst2:
+                continue
+            else:
+                lst1.append(str(j) + "/" + str(i))
+                lst2.append(round(j / i, 10))
+    answer = [x for _, x in sorted(zip(lst2, lst1))]
+    answer.append("1/1")
+    return answer
