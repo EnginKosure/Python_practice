@@ -1,6 +1,11 @@
+import os
+
+
 class PhoneBook:
     def __init__(self):
         self.numbers = {}
+        self.filename = "phonebook.txt"
+        self.cache = open(self.filename, "w")
 
     def add(self, name, number):
         self.numbers[name] = number
@@ -22,3 +27,7 @@ class PhoneBook:
 
     def get_numbers(self):
         return self.numbers.values()
+
+    def clear(self):
+        self.cache.close()
+        os.remove(self.filename)
