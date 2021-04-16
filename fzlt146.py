@@ -18,7 +18,16 @@ def isPhoneNumber(text):
     return True  # "text" is a phone number!
 
 
-print('415-555-4242 is a phone number:')
-print(isPhoneNumber('415-555-4242'))
-print('Moshi moshi is a phone number:')
-print(isPhoneNumber('Moshi moshi'))
+def isPhoneNumber1(text):
+    arr_text = text.split('-')
+    if len(text) != 12 and len(arr_text) != 3:
+        return False  # not phone number-sized
+    for i in arr_text:
+        for j in i:
+            if not j.isdecimal():
+                return False
+    return True  # "text" is a phone number!
+
+
+print(isPhoneNumber1('415-555-4242'))
+print(isPhoneNumber1('Mos-him-mosh'))
