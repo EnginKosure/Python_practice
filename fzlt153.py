@@ -2,4 +2,12 @@
 # that has the same nesting structures and same corresponding length of nested arrays as the first array.
 
 def same_structure_as(original, other):
-    pass
+    if type(original) != type(other) or len(original) != len(other):
+        return False
+    for org_val, other_val in zip(original, other):
+        if type(org_val) != type(other_val):
+            return False
+        if type(org_val) is list and type(other_val) is list:
+            if not same_structure_as(org_val, other_val):
+                return False
+    return True
