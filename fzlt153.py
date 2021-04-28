@@ -11,3 +11,6 @@ def same_structure_as(original, other):
             if not same_structure_as(org_val, other_val):
                 return False
     return True
+
+
+print(same_structure_as([1, '[', ']'], ['[', ']', 1]))
