@@ -1,4 +1,4 @@
-
+const _ = require('lodash')
 const add = (a, b) => a + b
 const curriedAdd = a => b => add(a, b)
 
@@ -24,3 +24,9 @@ function sum(a, b) {
 let curriedSum = curry(sum);
 
 console.log(curriedSum(1)(2)); // 3
+
+function log(date, importance, message) {
+    console.log(`[${date.getHours()}:${date.getMinutes()}] [${importance}] ${message}`);
+}
+log = _.curry(log);
+log(new Date(), "DEBUG", "some debug"); // log(a, b, c)
