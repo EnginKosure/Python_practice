@@ -8,4 +8,8 @@ def is_merge2(ss, p1, p2):
     return sorted(list(ss)) == sorted(list(p1)+list(p2))
 
 
+is_merge3 = m = lambda s, x, y: not(s+x+y) or f(s, x, y) or f(s, y, x)
+def f(s, x, y): return s and x and s[0] == x[0] and m(s[1:], x[1:], y)
+
+
 print(is_merge2('codewars', 'code', 'wars'))
