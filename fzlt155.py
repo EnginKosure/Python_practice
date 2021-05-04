@@ -9,3 +9,12 @@
 
 # "A big brown fox caught a bad rabbit" => True
 # "Xylophones can obtain Xenon." => False
+
+def connotation(s):
+    l = s.lower()
+    arr = l.split()
+    return True if sum([1 if ord(i[0]) < 110 else -1 for i in arr]) >= 0 else False
+
+
+print(connotation("A big brown fox caught a bad rabbit"))
+print(connotation("Xylophones can obtain Xenon."))
