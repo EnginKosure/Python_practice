@@ -13,7 +13,7 @@
 def connotation(s):
     l = s.lower()
     arr = l.split()
-    return True if sum([1 if ord(i[0]) < 110 else -1 for i in arr]) >= 0 else False
+    return True if sum(1 if ord(i[0]) < 110 else -1 for i in arr) >= 0 else False
 
 
 print(connotation("A big brown fox caught a bad rabbit"))
@@ -23,3 +23,6 @@ print(connotation("Xylophones can obtain Xenon."))
 def connotation1(s):
     lst = s.upper().split()
     return sum('A' <= w[0] <= 'M' for w in lst) >= len(lst)/2
+
+
+print(sum([True, True, False, True, 1]))  # 4
