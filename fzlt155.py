@@ -18,3 +18,8 @@ def connotation(s):
 
 print(connotation("A big brown fox caught a bad rabbit"))
 print(connotation("Xylophones can obtain Xenon."))
+
+
+def connotation1(s):
+    lst = s.upper().split()
+    return sum('A' <= w[0] <= 'M' for w in lst) >= len(lst)/2
