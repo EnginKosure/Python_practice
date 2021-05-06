@@ -19,4 +19,8 @@ def reverse_bits(n):
     return int(("{0:b}".format(n))[::-1], 2)
 
 
+def reverse_bits2(n):
+    return int(bin(n)[2:][::-1], base=2)
+
+
 print(reverse_bits(417))  # 267
