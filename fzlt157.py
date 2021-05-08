@@ -27,6 +27,12 @@ def find_x(tm):
             return False
         return True
 
+    def check_found(p, r, c):
+        if p == 'X':
+            return (r, c)
+        else:
+            pos = go_to(rp, cp)
+
     if pos[0] == 'N':
         rp -= int(pos[1])
         if check_pos(rp, cp) == True:
