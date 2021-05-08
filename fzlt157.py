@@ -17,11 +17,23 @@ def find_x(tm):
     #         if j[0] == 'N':
 
     def go_to(r, c):
-        pos = tm[r, c]
+        pos = tm[r][c]
+        return pos
+
+    def check_pos(r, c):
+        if r > mid*2 or r < 0:
+            return False
+        elif c > mid*2 or c < 0:
+            return False
+        return True
 
     if pos[0] == 'N':
         rp -= int(pos[1])
-        pos = go_to(rp, cp)
+        if check_pos(rp, cp) == True:
+            pos = go_to(rp, cp)
+        else:
+            return None
+        print(pos)
     elif pos[0] == 'S':
         rp += int(pos[1])
         pos = go_to(rp, cp)
@@ -31,3 +43,7 @@ def find_x(tm):
     elif pos[0] == 'w':
         cp -= int(pos[1])
         pos = go_to(rp, cp)
+    print(pos)
+
+
+find_x(tm)
