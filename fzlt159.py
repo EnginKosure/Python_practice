@@ -11,3 +11,11 @@ def guess_number(answers):
 
 def answers_sequence(n):
     return [1 if n in x else 0 for index, x in enumerate(s)]
+
+
+def guess_number1(answers):
+    return int(''.join(map(str, reversed(answers))), 2)
+
+
+def answers_sequence1(n):
+    return list(map(int, reversed(f"{n:05b}")))
