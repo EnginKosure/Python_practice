@@ -21,3 +21,13 @@ solve("2(a3(b))")  # "abbbabbb"
 
 for i in range(6, -5, -2):
     print(i)
+
+
+def solve1(st):
+    res = ""
+    for i in reversed(st):
+        if i.isalpha():
+            res += i
+        if i.isdigit():
+            res *= int(i)
+    return res[::-1]
