@@ -6,15 +6,7 @@
 # More examples in the test cases.
 
 def common(a, b, c):
-    s1 = set(a)
-    s2 = set(b)
-    s3 = set(c)
-    st1 = s1.intersection(s2)
-    res_set = st1.intersection(s3)
-    final_list = sum(res_set)
-    y = sum(s1.intersection(s2).intersection(s3))
-    print(final_list)
-    print(y)
+    return sum(set(a).intersection(set(b)).intersection(set(c)))
 
 
 # = 5 because 2 & 3 are common in all 3 arrays
