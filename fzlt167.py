@@ -7,3 +7,7 @@ def small_enough(array, limit):
 
 
 print(small_enough([101, 45, 75, 105, 99, 107], 107))
+
+
+def small_enough1(array, limit):
+    return any(a > limit for a in array) == False
