@@ -13,4 +13,8 @@ for i in y:  # O(N)
     if i in result:  # O(1)
         result[i] += 1
 
-print(result)
+print(result)  # {'a': 3, 'b': 2, 'c': 2}
+
+final = [f"{k}-{v}" for k, v in result.items()]  # O(N)
+
+print(final)  # ['a-3', 'b-2', 'c-2']
