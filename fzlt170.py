@@ -9,4 +9,8 @@ def remove_exclamation_marks(s):
     return new_s
 
 
+def remove_exclamation_marks1(s):
+    return s.replace('!', '')
+
+
 print(remove_exclamation_marks("Hello World!!!"))
