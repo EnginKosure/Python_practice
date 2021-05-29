@@ -1,6 +1,5 @@
 def is_same_language(lst):
-    # your code here
-    pass
+    return len(set([i["language"] for i in lst])) == 1
 
 
 list1 = [
@@ -11,3 +10,6 @@ list1 = [
     {'firstName': 'Hanna', 'lastName': 'L.', 'country': 'Hungary',
         'continent': 'Europe', 'age': 65, 'language': 'JavaScript'},
 ]
+
+
+print(is_same_language(list1))
