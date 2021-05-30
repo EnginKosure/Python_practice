@@ -28,5 +28,6 @@ def game(n):
     return [(n * n) / 2] if not (n * n) % 2 else [n * n, 2]
 
 
-print(game(0), [0])
-print(game(1), [1, 2])
+print(game(0))  # [0]
+print(game(1))  # [1, 2]
+print(game(8))  # [32]
