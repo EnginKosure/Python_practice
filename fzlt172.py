@@ -25,7 +25,7 @@
 # an n by n sized board and give the answer as a simplified fraction.
 
 def game(n):
-    # your code
+    return [(n * n) / 2] if not (n * n) % 2 else [n * n, 2]
 
 
 print(game(0), [0])
