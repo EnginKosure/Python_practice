@@ -24,6 +24,10 @@
 # the chessboard has n rows and n columns? Add all of the fractional values on
 # an n by n sized board and give the answer as a simplified fraction.
 
+# The function called 'game' with parameter n (integer >= 0) returns as
+# result an irreducible fraction written as an array of integers: [numerator, denominator].
+# If the denominator is 1 return [numerator].
+
 def game(n):
     return [(n * n) / 2] if not (n * n) % 2 else [n * n, 2]
 
