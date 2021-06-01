@@ -4,7 +4,7 @@ def error_printer(str):
 
 
 def printer_error(s):
-    return '{}/{}'.format(sum(color > 'm' for color in s), len(s))
+    return "{}/{}".format(len([x for x in s if x not in "abcdefghijklm"]), len(s))
 
 
 s = "aaabbbbhaijjjm"
