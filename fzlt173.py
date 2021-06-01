@@ -1,6 +1,10 @@
 
 def error_printer(str):
-    return f"{len(list(filter(lambda c:c>0,[1 if ord(i)>109 else 0 for i in str  ])))}/{len(str)}"
+    return f"{sum(i>'m' for i in str)}/{len(str)}"
+
+
+def printer_error(s):
+    return '{}/{}'.format(sum(color > 'm' for color in s), len(s))
 
 
 s = "aaabbbbhaijjjm"
