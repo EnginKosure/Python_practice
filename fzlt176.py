@@ -8,3 +8,7 @@ def not_visible_cubes1(n):
 
 def not_visible_cubes2(n):
     return n > 2 and (n-2)**3
+
+
+def not_visible_cubes3(n):
+    return (n > 2)*(n-2)**3
