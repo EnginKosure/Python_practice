@@ -10,3 +10,6 @@ def decode(bits):
     corrected_bits = ''.join('1' if triple.count(
         '1') > triple.count('0') else '0' for triple in triples)
     return ''.join(chr(x) for x in [int(x, 2) for x in wrap(corrected_bits, 8)])
+
+
+print(encode("1"))
