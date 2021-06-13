@@ -18,4 +18,8 @@ def find_admin(lst, lang):
     return admins
 
 
+def find_admin1(lst, lang):
+    return [i for i in lst if i['language'] == lang and i['githubAdmin'] == 'yes']
+
+
 print(find_admin(list1, 'JavaScript'))
