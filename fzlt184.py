@@ -17,3 +17,8 @@ len(re.findall('python', 'python is a programming language. python is python.'))
 def bonus(arr, s):
     bonus = s / sum(1 / x for x in arr)
     return [round(bonus / x) for x in arr]
+
+
+def order_food(lst):
+    keys = [x['meal'] for _, x in enumerate(lst)]
+    return {key: keys.count(key) for key in keys}
