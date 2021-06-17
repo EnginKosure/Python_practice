@@ -12,3 +12,8 @@ def new_avg(arr, newavg):
 
 
 len(re.findall('python', 'python is a programming language. python is python.'))
+
+
+def bonus(arr, s):
+    bonus = s / sum(1 / x for x in arr)
+    return [round(bonus / x) for x in arr]
