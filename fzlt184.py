@@ -22,3 +22,7 @@ def bonus(arr, s):
 def order_food(lst):
     keys = [x['meal'] for _, x in enumerate(lst)]
     return {key: keys.count(key) for key in keys}
+
+
+def largest_pair_sum(numbers):
+    return sum(sorted(numbers, reverse=True)[:2])
