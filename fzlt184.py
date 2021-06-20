@@ -26,3 +26,8 @@ def order_food(lst):
 
 def largest_pair_sum(numbers):
     return sum(sorted(numbers, reverse=True)[:2])
+
+
+def find_outlier(integers):
+    mods = [n % 2 for n in integers]
+    return integers[mods.index(0)] if sum(mods[:3]) > 1 else integers[mods.index(1)]
