@@ -31,3 +31,10 @@ def largest_pair_sum(numbers):
 def find_outlier(integers):
     mods = [n % 2 for n in integers]
     return integers[mods.index(0)] if sum(mods[:3]) > 1 else integers[mods.index(1)]
+
+
+def chess_knight(cell):
+    x, y = ord(cell[0]) - ord('a') + 1, int(cell[1])
+    moves = {(-2, -1), (-2, 1), (-1, 2), (1, 2),
+             (2, 1), (2, -1), (1, -2), (-1, -2)}
+    return sum(0 < x + i < 9 and 0 < y + j < 9 for i, j in moves)
