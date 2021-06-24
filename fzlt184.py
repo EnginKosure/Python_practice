@@ -44,3 +44,17 @@ def add_arrays(array1, array2):
     if len(array1) != len(array2):
         raise ValueError("Input arguments are not of equal length")
     return [array1[i] + array2[i] for i in range(len(array1))]
+
+
+def decipher_this(string):
+    words = string.split()
+    res = []
+    for word in words:
+        word = chr(int(''.join([ch for ch in word if ch.isdigit()])))\
+            + ''.join([ch for ch in word if ch.isalpha()])
+        if len(word) == 3:
+            word = word[:1] + word[2] + word[1]
+        elif len(word) > 3:
+            word = word[:1] + word[-1] + word[2:-1] + word[1]
+        res.append(word)
+    return ' '.join(w for w in res)
