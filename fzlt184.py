@@ -38,3 +38,9 @@ def chess_knight(cell):
     moves = {(-2, -1), (-2, 1), (-1, 2), (1, 2),
              (2, 1), (2, -1), (1, -2), (-1, -2)}
     return sum(0 < x + i < 9 and 0 < y + j < 9 for i, j in moves)
+
+
+def add_arrays(array1, array2):
+    if len(array1) != len(array2):
+        raise ValueError("Input arguments are not of equal length")
+    return [array1[i] + array2[i] for i in range(len(array1))]
