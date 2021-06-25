@@ -58,3 +58,10 @@ def decipher_this(string):
             word = word[:1] + word[-1] + word[2:-1] + word[1]
         res.append(word)
     return ' '.join(w for w in res)
+
+
+def presents(a):
+    res = [0] * len(a)
+    for x, i in enumerate(a, 1):
+        res[i - 1] = x
+    return res
