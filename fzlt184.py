@@ -69,3 +69,20 @@ def presents(a):
 
 def presents1(a):
     return [a.index(i)+1 for i in range(1, len(a)+1)]
+
+
+def solve(a, b):
+    rotated = {"0": "0", 
+              "1": "1",
+              "6": "9", 
+              "8": "8",
+              "9": "6"}
+    count = 0
+    for x in range(a, b):
+        rot = [rotated[d] for d in str(x) if d in rotated][::-1]
+        try:
+            if int("".join(rot)) == x:
+                count += 1
+        except Exception:
+            continue
+    return count
