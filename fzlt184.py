@@ -1,3 +1,4 @@
+from math import sqrt
 import re
 from math import ceil
 n = 6
@@ -72,11 +73,11 @@ def presents1(a):
 
 
 def solve(a, b):
-    rotated = {"0": "0", 
-              "1": "1",
-              "6": "9", 
-              "8": "8",
-              "9": "6"}
+    rotated = {"0": "0",
+               "1": "1",
+               "6": "9",
+               "8": "8",
+               "9": "6"}
     count = 0
     for x in range(a, b):
         rot = [rotated[d] for d in str(x) if d in rotated][::-1]
@@ -86,3 +87,8 @@ def solve(a, b):
         except Exception:
             continue
     return count
+
+
+def heron(*args):
+    s = sum(args) / 2
+    return round(sqrt(s * (s - args[0]) * (s - args[1]) * (s - args[2])), 2)
