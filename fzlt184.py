@@ -92,3 +92,7 @@ def solve(a, b):
 def heron(*args):
     s = sum(args) / 2
     return round(sqrt(s * (s - args[0]) * (s - args[1]) * (s - args[2])), 2)
+
+
+def t_area(t_str):
+    return (t_str.count("\n") - 2) ** 2 / 2s
