@@ -95,4 +95,16 @@ def heron(*args):
 
 
 def t_area(t_str):
-    return (t_str.count("\n") - 2) ** 2 / 2s
+    return (t_str.count("\n") - 2) ** 2 / 2
+
+
+def order(sentence):
+    spl = sentence.split(" ")
+    n = 1
+    ns = ""
+    for loop in range(len(spl)):
+        for a in spl:
+            if str(n) in a:
+                ns = ns + (a)+" "
+        n += 1
+    return ns[:-1]
