@@ -30,3 +30,7 @@ def binarySearch(alist, item):
                 first = midpoint + 1
 
     return found
+
+
+print(Ordered_binary_Search([0, 1, 3, 8, 14, 18, 19, 34, 52], 3))  # True
+print(Ordered_binary_Search([0, 1, 3, 8, 14, 18, 19, 34, 52], 17))  # False
