@@ -4,3 +4,7 @@ def close_compare(a, b, margin=0):
     elif a < b:
         return -1
     return 1
+
+
+def close_compare1(a, b, margin=0):
+    return 0 if abs(a - b) <= margin else -1 if b > a else 1
