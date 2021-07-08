@@ -15,3 +15,7 @@ def close_compare1(a, b, margin=0):
 
 def circle_diameter(sides, side_length):
     return side_length / math.tan(math.pi / sides)
+
+
+def over_the_road(address, n):
+    return (2 * n) - (address - 1)
