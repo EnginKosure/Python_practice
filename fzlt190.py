@@ -13,3 +13,7 @@ def minimum_number(numbers):
         if is_prime(sm + i):
             return i
         i += 1
+
+
+def is_sator_square(tablet):
+    return tablet == [t[::-1] for t in tablet][::-1] == list(map(list, zip(*tablet)))
