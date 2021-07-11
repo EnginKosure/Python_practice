@@ -1,0 +1,17 @@
+some
+random
+words
+is
+written
+here
+this
+must
+be 
+read 
+by
+a
+script
+and 
+do
+some
+transformations
