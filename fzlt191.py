@@ -30,4 +30,4 @@ def display(**kwargs):
         print(i)
 
 
-display(emp="Kelly", salary=9000)
+display(emp="Kelly", salary=9000)  # emp salary
