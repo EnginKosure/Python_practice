@@ -15,3 +15,11 @@ random_index = random.randint(0, len(words))
 
 # take the word
 print("Random word: ", words[random_index])
+
+
+def fun1(num):
+    return num + 25
+
+
+fun1(5)
+# print(num) # NameError: name 'num' is not defined
