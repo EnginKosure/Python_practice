@@ -4,3 +4,7 @@ default_args = {
     'start_date': '2019-01-01'
 }
 dag = DAG(dag_id="etl_update", default_args=default_args)
+
+# on command line:
+# airflow list_dags # to show all recognized DAGs.
+# airflow -h # for descriptions
