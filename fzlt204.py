@@ -31,3 +31,7 @@ python_task = PythonOperator(task_id='run_processing',
                              dag=dag)
 
 sensor >> bash_task >> python_task
+
+# to test it, the command is:
+# airflow test dag_id task_id date
+# airflow test etl_update sense_file -1
