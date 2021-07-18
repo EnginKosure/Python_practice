@@ -1,25 +1,21 @@
 from airflow.models import DAG
 from airflow.contrib.sensors.file_sensor import FileSensor
-
-# Import the needed operators
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator
-from datetime import date, datetime
+from dags.process import process_data
+from datetime import timedelta, datetime
 
+# Update the default arguments and apply them to the DAG
+default_args = {
+    'start_date': datetime(2019, 1, 1),
+    'sla': timedelta(minutes=90)
+}
 
-def process_data(**context):
-    file = open('/home/repl/workspace/processed_data.tmp', 'w')
-    file.write(f'Data processed on {date.today()}')
-    file.close()
-
-
-dag = DAG(dag_id='etl_update', default_args={
-          'start_date': datetime(2020, 4, 1)})
+dag = DAG(dag_id='etl_update', default_args=default_args)
 
 sensor = FileSensor(task_id='sense_file',
                     filepath='/home/repl/workspace/startprocess.txt',
-                    poke_interval=5,
-                    timeout=15,
+                    poke_interval=45,
                     dag=dag)
 
 bash_task = BashOperator(task_id='cleanup_tempfiles',
@@ -28,11 +24,7 @@ bash_task = BashOperator(task_id='cleanup_tempfiles',
 
 python_task = PythonOperator(task_id='run_processing',
                              python_callable=process_data,
+                             provide_context=True,
                              dag=dag)
 
 sensor >> bash_task >> python_task
-
-# to test it, the command is:
-# airflow test dag_id task_id date
-# airflow test etl_update sense_file -1
-# For the last argument, here we use a -1 instead of a specific date.
