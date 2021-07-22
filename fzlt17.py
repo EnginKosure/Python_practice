@@ -4,3 +4,4 @@ def sum_double(n):
 
 new = sum_double(4)
 print(new(4))
+print(new(8))
