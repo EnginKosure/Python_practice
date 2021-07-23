@@ -2,11 +2,14 @@
 import requests
 from bs4 import BeautifulSoup
 
-base_url = "http://www.vanityfair.com/society/2014/06/monica-lewinsky-humiliation-culture"
-r = requests.get(base_url)
-soup = BeautifulSoup(r.text)
+if __name__ == "__main__":
 
-all_p_cn_text_body = soup.select("div.parbase.cn_text > div.body > p")
+    r = requests.get(
+        "http://www.vanityfair.com/society/2014/06/monica-lewinsky-humiliation-culture")
+    html = r.text
 
-for elem in all_p_cn_text_body[7:]:
-    print(elem.text)
+    soup = BeautifulSoup(html, "html.parser")
+
+    for a in soup.find_all(class_="content-section"):
+        for b in a.find_all("p"):
+            print(b.text)
