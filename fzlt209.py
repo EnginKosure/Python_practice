@@ -7,6 +7,6 @@ database_address = {
 }
 
 # Open the configuration file in writable mode
-with open("database_config.json ", mode="w") as fh:
+with open("database_config.json", mode="w") as fh:
     # Serialize the object in this file handle
     json.dump(obj=database_address, fp=fh)
