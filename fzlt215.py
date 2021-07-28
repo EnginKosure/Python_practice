@@ -12,3 +12,6 @@ print(even_list)
 obj = ["Even" if i % 2 == 0 else "Odd" for i in range(10)]
 print(obj)
 # ['Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd']
+
+
+[[i*j for j in range(1, 11)] for i in range(7, 9)]
