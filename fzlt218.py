@@ -9,3 +9,9 @@ if x:
     print("YES! We have a match!")
 else:
     print("No match")
+
+y = re.findall("ai", txt)
+print(y)
+
+z = re.findall("Portugal", txt)
+print(z)
