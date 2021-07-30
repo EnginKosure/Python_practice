@@ -11,7 +11,12 @@ else:
     print("No match")
 
 y = re.findall("ai", txt)
-print(y)
+print(y)  # ['ai', 'ai']
 
 z = re.findall("Portugal", txt)
-print(z)
+print(z)  # []
+
+
+t = re.search("\s", txt)
+
+print("The first white-space character is located in position:", t.start())
