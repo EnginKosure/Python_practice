@@ -17,9 +17,12 @@ famous_films = [('Pulp Fiction', 'Quentin Tarantino', 1994),
 
 cursor.executemany('Insert INTO Movies VALUES (?,?,?)', famous_films)
 
-cursor.execute("SELECT * FROM Movies")
+records = cursor.execute("SELECT * FROM Movies")
 
-print(cursor.fetchall())
+# print(cursor.fetchall())
+
+for record in records:
+    print(record)
 
 connection.commit()
 connection.close()
