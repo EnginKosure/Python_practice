@@ -14,3 +14,13 @@ FROM web_events w
     JOIN accounts a
     ON w.account_id=a.id;
 
+SELECT
+    r.name AS reg_name, s.name as rep_name, a.name as ac_name
+FROM sales_reps s
+    JOIN region r
+    ON s.region_id=r.id AND r.name='Midwest'
+    JOIN accounts a
+    ON s.id=a.sales_rep_id;
+
+
+
