@@ -23,4 +23,22 @@ FROM sales_reps s
     ON s.id=a.sales_rep_id;
 
 
+SELECT
+    r.name as reg_name, s.name as rep_name, a.name as account_name
+FROM region r
+    JOIN sales_reps s
+    ON r.id=s.region_id
+    JOIN accounts a
+    ON s.id=a.sales_rep_id AND s.name LIKE 'S%' AND r.name='Midwest'
+ORDER BY a.name;
 
+SELECT
+    r.name region, a.name account, o.total_amt_usd/o.total unit_price
+FROM sales_reps s
+    JOIN region r
+    ON s.region_id=r.id
+    JOIN accounts a
+    ON s.id=a.sales_rep_id
+    JOIN orders o
+    ON a.id=o.account_id
+WHERE o.standard_qty>100
