@@ -4,3 +4,6 @@ def name_shuffler(str_):
 
 def name_shuffler1(s):
     return ' '.join(reversed(s.split()))
+
+
+# name_shuffler2 = lambda s: ' '.join(reversed(s.split(' ')))
