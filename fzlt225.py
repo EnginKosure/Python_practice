@@ -14,3 +14,7 @@ def all_continents(lst):
     for i in lst:
         cont.append(i['continent'])
     return True if sorted(set(cont)) == ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'] else False
+
+
+def all_continents1(lst):
+    return len(set(x["continent"] for x in lst)) == 5
