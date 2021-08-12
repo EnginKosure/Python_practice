@@ -18,3 +18,7 @@ def all_continents(lst):
 
 def all_continents1(lst):
     return len(set(x["continent"] for x in lst)) == 5
+
+
+def quarter_of(n):
+    return (n + 2) // 3
