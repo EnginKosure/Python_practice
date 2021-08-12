@@ -22,3 +22,6 @@ def all_continents1(lst):
 
 def quarter_of(n):
     return (n + 2) // 3
+
+
+# quarter_of1 = lambda m: __import__('math').ceil(m / 3)
