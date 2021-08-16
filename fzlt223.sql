@@ -42,3 +42,10 @@ FROM sales_reps s
     JOIN orders o
     ON a.id=o.account_id
 WHERE o.standard_qty>100
+
+
+SELECT a.primary_poc cnt, w.occurred_at occ
+FROM web_events w
+    JOIN accounts a
+    ON a.id=w.account_id
+ORDER BY cnt DESC
