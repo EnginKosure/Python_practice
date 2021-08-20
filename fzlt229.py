@@ -18,3 +18,7 @@ print(football_points(0, 0, 1))  # ➞ 0
 
 def make_negative(number):
     return -abs(number)
+
+
+def make_negative1(number):
+    return -number if number > 0 else number
