@@ -22,3 +22,8 @@ def make_negative(number):
 
 def make_negative1(number):
     return -number if number > 0 else number
+
+
+
+def hex_to_dec(s):
+    return int(s, 16)
