@@ -24,6 +24,8 @@ def make_negative1(number):
     return -number if number > 0 else number
 
 
-
 def hex_to_dec(s):
     return int(s, 16)
+
+    def count_squares(x):
+    return 6 * x**2 + 2
