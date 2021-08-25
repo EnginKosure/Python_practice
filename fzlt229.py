@@ -30,3 +30,10 @@ def hex_to_dec(s):
 
 def count_squares(x):
     return 6 * x**2 + 2
+
+
+def fun_func(s):
+    return s[::-1]
+
+
+print(fun_func('fast'))
