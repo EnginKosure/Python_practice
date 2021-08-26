@@ -37,3 +37,7 @@ def fun_func(s):
 
 
 print(fun_func('fast'))
+
+
+def factorial(n):
+    return 1 if n <= 1 else n * factorial(n - 1)
