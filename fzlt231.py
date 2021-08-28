@@ -17,6 +17,8 @@ def stat(x):
         ra.append(rng)
         me.append(med)
     print(ra, av, me)
+    for i, j, k in av, ra, me:
+        print([i, j, k])
 
 
 stat(x)
