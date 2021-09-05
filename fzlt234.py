@@ -13,3 +13,11 @@ zipWith( Math.max, [1,4,7,1,4,7], [4,7,1,4,7,1] )  =>  [4,7,7,4,7,7]
 
 zipWith( function(a,b) { return a+b; }, [0,1,2,3], [0,1,2,3] )  =>  [0,2,4,6]  Both forms are valid.
 zipWith( (a,b) => a+b,                  [0,1,2,3], [0,1,2,3] )  =>  [0,2,4,6]  Both are functions."""
+import math
+
+
+def zip_with(fn, a1, a2):
+    return [fn(i, k) for i, k in zip(a1, a2)]
+
+
+print(zip_with(math.pow, [10, 10, 10, 10], [0, 1, 2, 3]))
