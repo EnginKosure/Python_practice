@@ -33,3 +33,6 @@ print(str_to_hash(x))
 # # Driver code
 # lst = ['a', 1, 'b', 2, 'c', 3]
 # print(Convert(lst))
+
+def str_to_hash1(st):
+    return {} if not st else {x.split("=")[0]: int(x.split("=")[1]) for x in st.split(", ")}
