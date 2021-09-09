@@ -40,4 +40,8 @@ def str_to_hash1(st):
 
 
 def str_to_hash2(st):
+    print('aaaa', findall(r'(\w+)=(\d+)', st))
     return {i: int(j)for i, j in findall(r'(\w+)=(\d+)', st)}
+
+
+str_to_hash2(x)
