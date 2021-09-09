@@ -5,7 +5,7 @@ x = "a=1, b=2, c=3, d=4"
 def str_to_hash(x):
     y = [j.split(':') for j in (i.replace('=', ':') for i in x.split(','))]
     z = [item for sublist in y for item in sublist]
-    v = [int(i) if z.index(i) % 2 else i for i in z]
+    v = [int(i) if z.index(i) % 2 else i.strip() for i in z]
     # print([item for sublist in y for item in sublist])
     it = iter(v)
     res_dct = dict(zip(it, it))
