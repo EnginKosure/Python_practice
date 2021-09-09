@@ -1,3 +1,4 @@
+from re import findall
 x = "a=1, b=2, c=3, d=4"
 # { 'a': 1, 'b': 2, 'c': 3, 'd': 4}
 
@@ -36,3 +37,7 @@ print(str_to_hash(x))
 
 def str_to_hash1(st):
     return {} if not st else {x.split("=")[0]: int(x.split("=")[1]) for x in st.split(", ")}
+
+
+def str_to_hash2(st):
+    return {i: int(j)for i, j in findall(r'(\w+)=(\d+)', st)}
