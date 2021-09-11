@@ -16,3 +16,8 @@ def high_and_low(s):
 print(high_and_low("8 3 -5 42 -1 0 0 -9 4 7 4 -4"))  # return "5 1"
 # high_and_low("1 2 -3 4 5")  # return "5 -3"
 # high_and_low("1 9 3 4 -5")  # return "9 -5"
+
+
+def high_and_low1(numbers):  # z.
+    nn = [int(s) for s in numbers.split(" ")]
+    return "%i %i" % (max(nn), min(nn))
