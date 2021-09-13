@@ -15,3 +15,7 @@ def compute_sum(n):
 
 
 print(compute_sum(12))
+
+
+def compute_sum2(n):
+    return sum(int(c) for i in range(1, n+1) for c in str(i))
