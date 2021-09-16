@@ -8,3 +8,7 @@ def sum_cubes(n):
 
 def sum_cubes1(n):
     return sum(i**3 for i in range(0, n+1))
+
+
+def halving_sum(n):
+    return n + halving_sum(n // 2) if n else 0
