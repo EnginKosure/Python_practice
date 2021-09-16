@@ -12,3 +12,7 @@ def sum_cubes1(n):
 
 def halving_sum(n):
     return n + halving_sum(n // 2) if n else 0
+
+
+def halving_sum1(n):
+    return n+n//2 if n//2 <= 1 else n+halving_sum(n//2)
