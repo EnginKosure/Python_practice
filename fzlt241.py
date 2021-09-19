@@ -10,3 +10,7 @@ def contain_all_rots1(s, l):
 
 def even_numbers(arr, n):
     return list(filter(lambda x: not x % 2, arr))[-n:]
+
+
+def even_numbers1(arr, n):
+    return [i for i in arr if i % 2 == 0][-n:]
