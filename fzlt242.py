@@ -9,9 +9,11 @@ list1 = [
         'continent': 'Asia', 'age': 49, 'language': 'PHP'},
 ]
 
+# sorted(orders.items(), key=lambda x: x[1], reverse=True)
+
 
 def find_senior(lst):
-    return [sorted(i.items()) for i in lst]
+    return [sorted(i.items(), key=lambda x:x[1]) for i in lst]
 
 
 print(find_senior(list1))
