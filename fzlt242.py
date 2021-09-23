@@ -13,7 +13,9 @@ list1 = [
 
 
 def find_senior(lst):
-    return [sorted(i.items(), key=lambda x:x[1]) for i in lst]
+    a = list(i.items() for i in lst)
+    # return list(i.keys() for i in a)
+    return a
 
 
 print(find_senior(list1))
