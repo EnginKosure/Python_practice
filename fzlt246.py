@@ -18,5 +18,6 @@ print(check_inside(lst, sequence))
 lst_set = set(lst)
 intersection = lst_set.intersection(sequence)
 intersection_lst = list(intersection)
+# list(set(lst).intersection(sequence))
 print(intersection_lst)
 #['R_CRESCLMND', 'R_CRESCLMRECND', 'R_CRESCLMREC', 'R_CRESCLM', 'R_CLM']
