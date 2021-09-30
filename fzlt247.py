@@ -3,3 +3,15 @@ def find_cons(s):
 
 
 print(find_cons('1001101000110'))
+
+
+def consecutive_zeros(bin_str):
+    result = 0
+    streak = 0
+    for letter in bin_str:
+        if letter == "0":
+            streak += 1
+        else:
+            streak = 0
+        result = max(result, streak)
+    return result
