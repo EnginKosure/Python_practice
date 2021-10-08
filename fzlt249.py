@@ -4,3 +4,8 @@ def all_equal(l):
 
 def all_equal1(items):
     return all(item1 == item2 for item1 in items for item2 in items)
+
+
+x = [1, 2, 3]
+y = [5, 10, 15]
+customlist = [a*b for a in x for b in y if a*b % 2 != 0]
