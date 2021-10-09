@@ -9,3 +9,6 @@ def all_equal1(items):
 x = [1, 2, 3]
 y = [5, 10, 15]
 customlist = [a*b for a in x for b in y if a*b % 2 != 0]
+
+aTuple = ("Orange", [10, 20, 30], (5, 15, 25))
+print(aTuple[1][1])
