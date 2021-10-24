@@ -7,8 +7,7 @@ from google.api_core import exceptions
 
 
 # CREATE TABLE NAMES
-def create_table_names(project, dataset_id):
-    helper_tn = "resq_source_view_index_as_export_helper"
+def create_table_names(project, dataset_id, helper_tn):
     client_tn = bigquery.Client()
     table_names = []
 
@@ -48,28 +47,28 @@ def create_ReSQ_export(li, tn):
 
 # QUERY CREATOR-2
 # creates the helper source view index for ReSQ table creation phase
-def reSQ_helper_view_index_query(tn):
-    project = "geb-dwh-test"
-    dataset_id = "uat_geb_dwh_eu_act"
+def reSQ_helper_view_index_query(tn, search_term, project, dataset_id):
     source_table = "INFORMATION_SCHEMA.VIEWS"
     return f"""
            CREATE OR REPLACE TABLE `{tn}` AS
            SELECT * EXCEPT(check_option)
             FROM `{project}.{dataset_id}.{source_table}`
-            WHERE table_name LIKE '%ReSQ%' ORDER BY table_name;
+            WHERE table_name LIKE @search_term ORDER BY table_name;
          """
 
 
 # HELPER INDEX TABLE CREATOR (Executes QUERY-2: create_ReSQ_helper_view_index)
-def generate_helper_index_table():
+def generate_helper_index_table(search_term, project, dataset_id, helper_tn):
     # create the export helper index table using info schema of bigquery
-    tn = "geb-dwh-test.uat_geb_dwh_eu_act.resq_source_view_index_as_export_helper"
+    tn = f'{project}.{dataset_id}.{helper_tn}'
     client_f = bigquery.Client()
-    query_f = reSQ_helper_view_index_query(tn)
+    query_f = reSQ_helper_view_index_query(
+        tn, search_term, project, dataset_id)
 
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
-            bigquery.ScalarQueryParameter("tn", "STRING", f'{tn}'),
+            bigquery.ScalarQueryParameter(
+                "search_term", "STRING", f'{search_term}'),
         ]
     )
     client_f.query(query_f, job_config=job_config)
@@ -96,13 +95,7 @@ def generate_tables(df, table_names):
         print("source view name ", j+1, tn)
         client_ex = bigquery.Client()
         query_ex = create_ReSQ_export(li, tn)
-        job_config = bigquery.QueryJobConfig(
-            query_parameters=[
-                bigquery.ScalarQueryParameter("li", "STRING", f'{li}'),
-                bigquery.ScalarQueryParameter("tn", "STRING", f'{tn}'),
-            ]
-        )
-        client_ex.query(query_ex, job_config=job_config)
+        client_ex.query(query_ex)
 
 
 # TABLE EXPORTER
@@ -159,12 +152,15 @@ def export_resq():
     project = "geb-dwh-test"
     dataset_id = "uat_geb_dwh_eu_act"
     bucket_uri = "https://console.cloud.google.com/storage/browser/geb-dwh-tst-bck-novus-europe-west1"
+    search_term = '%ReSQ%'
+    helper_tn = "resq_source_view_index_as_export_helper"
 
     # Trigger helper index table generation
-    generate_helper_index_table()
+    generate_helper_index_table(search_term, project, dataset_id, helper_tn)
 
     # CREATE TABLE NAMES
-    table_names, df, dataset_ref = create_table_names(project, dataset_id)
+    table_names, df, dataset_ref = create_table_names(
+        project, dataset_id, helper_tn)
 
     # show the source views that will be used for table creation and ask for confirmation
     # if confirmed, continue to execution
@@ -180,7 +176,7 @@ def export_resq():
         # DELETE TABLES
         delete_tables(df, table_names, dataset_ref, dataset_id)
 
-    print(f'\nExecuted till the end.\n\ncreate >> export >> delete phases consequently and successfully executed.\
+        print(f'\nExecuted till the end.\n\ncreate >> export >> delete phases consequently and successfully executed.\
         \nYou can check the bucket following this link--> {bucket_uri} \
         \n\nPlease do not forget to delete these exported files from the bucket after feeding your ReSQ data import pipeline.\n')
 
