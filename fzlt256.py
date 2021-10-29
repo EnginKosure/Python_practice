@@ -1,5 +1,5 @@
 def sock_merchant(l):
-    return [[x, l.count(x)] for x in set(l)]
+    return sum([[x, l.count(x)][1]//2 for x in set(l)])
 
 
 print(sock_merchant([10, 20, 20, 10, 10, 30, 50, 10, 20]))  # ➞ 3
