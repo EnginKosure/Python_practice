@@ -12,8 +12,13 @@ if __name__ == '__main__':
             print("Already guessed!!")
         elif letter.upper() in word:
             index = word.index(letter.upper())
+            print("index", index)
             guessed[index] = letter.upper()
+            print("guessed index", guessed[index])
+            print("before", word[index])
+            # To enable catching of next index, in case multiple appearance
             word[index] = '_'
+            print("after", word[index])
         else:
             print(''.join(guessed))
             if letter is not '':
