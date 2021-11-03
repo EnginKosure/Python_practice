@@ -11,3 +11,6 @@ def sumOfTwo(a, b, v):
                 if a.index(itemA) == lenA:
                     print("False")
                     exit()
+
+
+sumOfTwo([1, 2, 3], [10, 20, 30], 23)
