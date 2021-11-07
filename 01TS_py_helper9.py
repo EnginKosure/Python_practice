@@ -9,6 +9,8 @@ from google.api_core import exceptions
 # To keep the created table names which must be deleted later during clean-up
 tables_cleanup = []
 
+client = bigquery.Client()
+
 # CONFIGURE RETRY STRATEGY
 """
 predicate parameter defaults to if_transient_error(), which catches following errors considered transient:
@@ -122,6 +124,62 @@ def bq_if_table_exists(client, table_ref):
         return False
 
 
+# FACT_ACTUARY CREATION
+def create_fact_actuary():
+
+    sql_prestaging = """ 
+            CREATE OR REPLACE TABLE `geb-dwh-test.uat_geb_dwh_eu_act.fact_actuary_prestaging` AS 
+            SELECT * FROM `geb-dwh-test.uat_geb_dwh_eu_act.source_fact_actuary_prestaging`
+    """
+
+    table = client.query(sql_prestaging)
+    table = table.result()
+
+    sql_staging = """ 
+            CREATE OR REPLACE TABLE `geb-dwh-test.uat_geb_dwh_eu_act.fact_actuary_staging` AS 
+            SELECT * FROM `geb-dwh-test.uat_geb_dwh_eu_act.source_fact_actuary_staging`
+    """
+
+    table_ref = "geb-dwh-test.uat_geb_dwh_eu_act.fact_actuary_prestaging"
+    waited_time = 0
+    while True:
+
+        if bq_if_table_exists(client, table_ref):
+            print("AVAILABILITY CHECK RETURNS TRUE",
+                  table_ref, "HAS BEEN CREATED AND READY")
+            table = client.query(sql_staging)
+            table = table.result()
+            break
+
+        else:
+            waited_time += 5
+            print(
+                f'TABLE {table_ref} IS NOT READY, WILL WAIT 5 SECONDS AND RETRY. Query duration: {waited_time}')
+            sleep(5)
+
+    sql_fact_actuary = """ 
+            CREATE OR REPLACE TABLE `geb-dwh-test.uat_geb_dwh_eu_act.fact_actuary` AS 
+            SELECT * FROM `geb-dwh-test.uat_geb_dwh_eu_act.source_fact_actuary`
+    """
+
+    table_ref = "geb-dwh-test.uat_geb_dwh_eu_act.fact_actuary_staging"
+    waited_time = 0
+    while True:
+
+        if bq_if_table_exists(client, table_ref):
+            print("AVAILABILITY CHECK RETURNS TRUE",
+                  table_ref, "HAS BEEN CREATED AND READY")
+            table = client.query(sql_fact_actuary)
+            table = table.result()
+            break
+
+        else:
+            waited_time += 5
+            print(
+                f'TABLE {table_ref} IS NOT READY, WILL WAIT 5 SECONDS AND RETRY. Query duration: {waited_time}')
+            sleep(5)
+
+
 # PROPHET INPUT GENDER ENCRYPTED TABLE CREATION QUERY
 def create_gender_deidentified_table():
 
@@ -130,12 +188,21 @@ def create_gender_deidentified_table():
             SELECT * FROM `geb-dwh-test.uat_geb_dwh_eu_act.source_prophet_input`
     """
 
-    client_l = bigquery.Client()
-    table = client_l.query(sql_deidentified)
-    table = table.result()
+    table_ref = "geb-dwh-test.uat_geb_dwh_eu_act.fact_actuary"
+    waited_time = 0
+    while True:
 
-    # wait 3 sec. for table creation
-    sleep(3)
+        if bq_if_table_exists(client, table_ref):
+            print("AVAILABILITY CHECK RETURNS TRUE", table_ref, "IS READY.")
+            table = client.query(sql_deidentified)
+            table = table.result()
+            break
+
+        else:
+            waited_time += 5
+            print(
+                f'TABLE {table_ref} IS NOT READY, WILL WAIT 5 SECONDS AND RETRY. Query duration: {waited_time}')
+            sleep(5)
 
 
 def get_distinct_gender_encrypted_values():
@@ -143,16 +210,14 @@ def get_distinct_gender_encrypted_values():
     sql = """
     SELECT DISTINCT SEX FROM `geb-dwh-test.uat_geb_dwh_eu_act.prophet_input_gender_encrypted` ORDER BY SEX DESC;
     """
-    client_en = bigquery.Client()
+
     table_ref = "geb-dwh-test.uat_geb_dwh_eu_act.prophet_input_gender_encrypted"
 
     while True:
-        if bq_if_table_exists(client_en, table_ref):
-            print("AVAILIBILITY CHECK RETURNS TRUE",
+        if bq_if_table_exists(client, table_ref):
+            print("AVAILABILITY CHECK RETURNS TRUE",
                   table_ref, "HAS BEEN CREATED AND READY")
-            table = client_en.query(sql)
-            table = table.result()
-            df = table.to_dataframe()
+            df = client.query(sql).result().to_dataframe()
             # ['CE_(24):AfkwbapkQwFqtk8Gx42biBhS', 'CE_(24):AbmgbLq4OGncwRPFrV3ZodFN', '', None]
             distinct_values = list(df['SEX'].unique())
             print(distinct_values)
@@ -168,18 +233,24 @@ def get_distinct_gender_encrypted_values():
 
 def get_original(dist_val):
     enc_dec_dict = {}
-    for i in dist_val:
-        if i not in (None, ""):
-            # CAUTION!
-            # CHECK IF THE KEY_NAME AND WRAPPED_KEY ARGUMENTS ARE UP-TO-DATE! THEY MUST MATCH WITH THE ONES USED FOR ENCRYPTION IN DATAFUSION PIPELINE.
-            # They would change every three months and the new wrapped_key / key_name info would be sent by IT to BI and to DWH teams.
-            val = reidentify_with_deterministic('geb-dwh-test', i, surrogate_type="CE_", key_name="projects/geb-dwh-test/locations/global/keyRings/geb-dwh-tst-01/cryptoKeys/geb-dwh-tst-key01",
-                                                wrapped_key="CiQAOZCFLMFIuLVQ74rUefYpxvWBwUYHWuugoSHT5lRYV+Gce+ASSQD6qDFuREha0mJXXE1RKbiAng1ACkS+8MzuaEE5GVHAomCIQHHa2pPEx8ZCuuKCuAg5HX8JwoMuIaLO2R0sMTztZoRZlUKngM4=")
+    try:
+        for i in dist_val:
+            if i not in (None, ""):
+                # CAUTION!
+                # CHECK IF THE KEY_NAME AND WRAPPED_KEY ARGUMENTS ARE UP-TO-DATE! THEY MUST MATCH WITH THE ONES USED FOR ENCRYPTION IN DATAFUSION PIPELINE.
+                # They would change every three months and the new wrapped_key / key_name info would be sent by IT to BI and to DWH teams.
+                val = reidentify_with_deterministic('geb-dwh-test', i, surrogate_type="CE_", key_name="projects/geb-dwh-test/locations/global/keyRings/geb-dwh-tst-01/cryptoKeys/geb-dwh-tst-key01",
+                                                    wrapped_key="CiQAOZCFLMFIuLVQ74rUefYpxvWBwUYHWuugoSHT5lRYV+Gce+ASSQD6qDFuREha0mJXXE1RKbiAng1ACkS+8MzuaEE5GVHAomCIQHHa2pPEx8ZCuuKCuAg5HX8JwoMuIaLO2R0sMTztZoRZlUKngM4=")
 
-            enc_dec_dict[i] = val
+                enc_dec_dict[i] = val
 
-    # print(enc_dec_dict)
-    return enc_dec_dict
+        return enc_dec_dict
+
+    except:
+        print("\nTHE OPERATION WAS UNSUCCESSFUL DUE TO WRONG DLP PARAMETERS.")
+        print("\nCHECK IF THE KEY_NAME AND WRAPPED_KEY ARGUMENTS ARE UP-TO-DATE! THEY MUST MATCH WITH THE ONES USED FOR ENCRYPTION IN DATAFUSION PIPELINE.\n \
+        \nThose parameters would change every three months and the new wrapped_key / key_name info would be sent by IT to BI and to DWH teams.\n")
+        exit()
 
 
 # PROPHET INPUT GENDER REIDENTIFICATION QUERY
@@ -189,7 +260,6 @@ def create_gender_reidentified_table(orig_dict):
     key1 = list(orig_dict.keys())[1]
     val0 = 1 if list(orig_dict.values())[0] == 'F' else 0
     val1 = 0 if list(orig_dict.values())[1] == 'M' else 1
-    # print(key0, key1)
 
     sql_reidentified = """ 
             CREATE OR REPLACE TABLE `geb-dwh-test.uat_geb_dwh_eu_act.prophet_input_gender_reidentified` AS 
@@ -202,7 +272,6 @@ def create_gender_reidentified_table(orig_dict):
             FROM `geb-dwh-test.uat_geb_dwh_eu_act.source_prophet_input`
     """
 
-    client_l = bigquery.Client()
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
             bigquery.ScalarQueryParameter("key0", "STRING", f'{key0}'),
@@ -211,8 +280,7 @@ def create_gender_reidentified_table(orig_dict):
             bigquery.ScalarQueryParameter("val1", "INT64", f'{val1}'),
         ]
     )
-    table = client_l.query(sql_reidentified, job_config=job_config)
-    table = table.result()
+    client.query(sql_reidentified, job_config=job_config).result()
 
     # wait 3 sec. for table creation
     sleep(3)
@@ -225,7 +293,6 @@ def control_gender_reidentification(orig_dict):
     key1 = list(orig_dict.keys())[1]
     val0 = 1 if list(orig_dict.values())[0] == 'F' else 0
     val1 = 0 if list(orig_dict.values())[1] == 'M' else 1
-    # print(key0, key1)
 
     control_sql = """
             SELECT
@@ -253,12 +320,10 @@ def control_gender_reidentification(orig_dict):
         ORDER BY CNT DESC)  USING (CNT)
     """
 
-    client_l = bigquery.Client()
-    table = client_l.query(control_sql)
-    table = table.result()
-    compare = client_l.query(compare_sql_).result().to_dataframe()
+    table = client.query(control_sql).result().to_dataframe()
+    compare = client.query(compare_sql_).result().to_dataframe()
 
-    if table.to_dataframe().iloc[0][0] == 'True' and (compare.iloc[0][1] == val0 if compare.iloc[0][2] == key0 else compare.iloc[0][1] == val1) \
+    if table.iloc[0][0] == 'True' and (compare.iloc[0][1] == val0 if compare.iloc[0][2] == key0 else compare.iloc[0][1] == val1) \
             and (compare.iloc[1][1] == val1 if compare.iloc[1][2] == key1 else compare.iloc[1][1] == val0):
         print("FIRST CHECK RETURNS",
               compare.iloc[0][1] == val0 if compare.iloc[0][2] == key0 else compare.iloc[0][1] == val1)
@@ -275,12 +340,11 @@ def control_gender_reidentification(orig_dict):
 
 # CREATE TABLE NAMES
 def create_table_names(project, dataset_id, helper_tn):
-    client_tn = bigquery.Client()
     table_names = []
     dataset_ref = bigquery.DatasetReference(project, dataset_id)
     table_ref = dataset_ref.table(helper_tn)
-    table = client_tn.get_table(table_ref, retry=retry_config)
-    df = client_tn.list_rows(table).to_dataframe()
+    table = client.get_table(table_ref, retry=retry_config)
+    df = client.list_rows(table).to_dataframe()
 
     # create table names
     for j in range(0, len(df)):
@@ -300,7 +364,6 @@ def generate_tables(df, table_names):
         cc = df.iloc[j][4]
         tn = table_names[j]
         print(j+1, "table name ", tn)
-        client_ex = bigquery.Client()
         query_ex = create_prophet_input_files(li, rby, q, cc, tn)
         job_config = bigquery.QueryJobConfig(
             query_parameters=[
@@ -311,7 +374,7 @@ def generate_tables(df, table_names):
                 bigquery.ScalarQueryParameter("tn", "STRING", f'{tn}'),
             ]
         )
-        client_ex.query(query_ex, job_config=job_config)
+        client.query(query_ex, job_config=job_config)
 
 
 # TABLE EXPORTER
@@ -329,13 +392,12 @@ def export_tables(df, table_names, dataset_ref, project, dataset_id):
         print('\nTable reference:', j+1, table_ref,)
         # gs://geb-dwh-tst-bck-novus-europe-west1/GH7by2020q4wp.csv
         print('destination_uri', destination_uri)
-        client_ex = bigquery.Client()
 
         while True:
-            if bq_if_table_exists(client_ex, table_ref):
-                print("AVAILIBILITY CHECK RETURNS TRUE",
+            if bq_if_table_exists(client, table_ref):
+                print("AVAILABILITY CHECK RETURNS TRUE",
                       table_ref, "HAS BEEN CREATED AND READY")
-                extract_job = client_ex.extract_table(
+                extract_job = client.extract_table(
                     table_ref,
                     destination_uri,
                     # Location must match that of the source table.
@@ -362,16 +424,14 @@ def delete_tables(df, table_names, dataset_ref, dataset_id, tables_cleanup):
         # DELETE AFTER EXPORT
         table_id = table_names[j][32:]
         table_ref = dataset_ref.table(table_id)
-        client_ex = bigquery.Client()
-        client_ex.delete_table(table_ref, retry=retry_config)  # API request
+        client.delete_table(table_ref, retry=retry_config)  # API request
         print('Table {} {}:{} deleted.'.format(j+1, dataset_id, table_id))
 
     for j in range(len(tables_cleanup)):
         # DELETE AFTER EXPORT
         table_id = tables_cleanup[j]
         table_ref = dataset_ref.table(table_id)
-        client_ex = bigquery.Client()
-        client_ex.delete_table(table_ref, retry=retry_config)  # API request
+        client.delete_table(table_ref, retry=retry_config)  # API request
         print('Helper Table {} {}:{} deleted.'.format(j+1, dataset_id, table_id))
 
 
@@ -391,7 +451,7 @@ def create_prophet_input_files(li, rby, q, cc, tn):
          """
 
 
-# HELPER TABLE QUERY CREATOR-1
+# HELPER TABLE QUERY CREATOR
 # creates the query for helper table generation for latest available quarter export
 def create_prophet_input_export_helper_latest_quarter(rby, q, tn):
     project = "geb-dwh-test"
@@ -419,15 +479,13 @@ def previous_quarter(ref):
     return yy, pq
 
 
-# HELPER INDEX TABLE CREATOR (LATEST AVAILABLE EXPORT)
+# HELPER INDEX TABLE QUERY EXECUTER (LATEST AVAILABLE EXPORT)
 def generate_helper_index_table(project, dataset_id, helper_tn, current_yy, current_q):
     print(
         f"generate_helper_index_table function is called with parameters: {project}, {dataset_id}, {helper_tn}, {current_yy}, {current_q} ")
     tn = f'{project}.{dataset_id}.{helper_tn}'
     rby = int(current_yy)
     q = str(current_q)
-    # print("rby", rby, "q", q)
-    client_l = bigquery.Client()
     query_l = create_prophet_input_export_helper_latest_quarter(rby, q, tn)
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
@@ -439,14 +497,14 @@ def generate_helper_index_table(project, dataset_id, helper_tn, current_yy, curr
 
     dataset_ref = bigquery.DatasetReference(project, dataset_id)
     table_ref = dataset_ref.table(helper_tn)
-    client_l.query(query_l, job_config=job_config)
+    client.query(query_l, job_config=job_config)
 
     while True:
-        if bq_if_table_exists(client_l, table_ref):
-            print("AVAILIBILITY CHECK RETURNS TRUE",
+        if bq_if_table_exists(client, table_ref):
+            print("AVAILABILITY CHECK RETURNS TRUE",
                   table_ref, "HAS BEEN CREATED AND READY")
-            table = client_l.get_table(table_ref)
-            df = client_l.list_rows(table).to_dataframe()
+            table = client.get_table(table_ref)
+            df = client.list_rows(table).to_dataframe()
             break
 
         else:
@@ -457,11 +515,8 @@ def generate_helper_index_table(project, dataset_id, helper_tn, current_yy, curr
     print("DATAFRAME", df)
     control_bool = len(df) == 0
 
-    # print(len(df))
-    # print("control bool",control_bool)
-
     if control_bool:
-        client_l.delete_table(table_ref)
+        client.delete_table(table_ref)
         print(
             f" NO RECORDS AVAILABLE FOR YEAR {current_yy} QUARTER {current_q} ")
         current_qn = current_q-1 if current_q != 1 else 4
@@ -471,12 +526,39 @@ def generate_helper_index_table(project, dataset_id, helper_tn, current_yy, curr
             project, dataset_id, helper_tn, current_yyn, current_qn)
 
 
+def check_up_to_date(project, dataset_id, table_name='fact_actuary'):
+
+    sql_check = """
+            SELECT CASE
+            WHEN ( SELECT CREATED_ON FROM `geb-dwh-test.uat_geb_dwh_eu_act.fact_actuary` LIMIT 1)=( SELECT MAX(CREATED_ON) FROM `geb-dwh-test.uat_geb_dwh_eu_awr.fact_claimdetails`) 
+            THEN 'True' ELSE 'False' END AS result;
+    """
+
+    dataset_ref = bigquery.DatasetReference(project, dataset_id)
+    table_ref = dataset_ref.table(table_name)
+
+    if bq_if_table_exists(client, table_ref):
+        print("AVAILABILITY CHECK RETURNS TRUE", table_ref, "ALREADY EXISTS.")
+        df = client.query(sql_check).result().to_dataframe()
+        if df.iloc[0][0] == 'True':
+            print("RECENTNESS CHECK RETURNS:",
+                  df.iloc[0][0], "No need to recreate fact_actuary table.\n")
+            return True
+    else:
+        print("Fact Actuary table is unavailable, it will be created with the latest data.\nThis will take approximately 3 minutes. Please be patient and don't exit.")
+        return False
+
+
 # MAIN EXECUTER
 # main function that executes all in a flow
 def export_prophet():
     project = "geb-dwh-test"
     dataset_id = "uat_geb_dwh_eu_act"
     bucket_uri = "https://console.cloud.google.com/storage/browser/geb-dwh-tst-bck-novus-europe-west1"
+
+    # Create fresh fact_actuary table if not exist or not up-to-date
+    if not check_up_to_date(project, dataset_id, table_name='fact_actuary'):
+        create_fact_actuary()
 
     # Create gender deidentified table
     create_gender_deidentified_table()
