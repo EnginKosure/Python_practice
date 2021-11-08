@@ -1,3 +1,5 @@
+import pandas as pd
+from google.cloud import bigquery
 Months = ["Jan", "Feb", "Mar", "April", "May", "June"]
 for i, m in enumerate(Months):
     print(i, m)
@@ -17,3 +19,40 @@ tr = tr.split('|')
 # print(tr)
 tr = [i.strip() for i in tr]
 print(tr)
+
+
+def control_dupl():
+
+    control_sql = """
+                SELECT
+                CLAIMDWHID,
+                CASE
+                    WHEN FLOOR(LENGTH(CLAIMDWHID)/36)>24 THEN FLOOR(LENGTH(CLAIMDWHID)/36)-2
+                    WHEN FLOOR(LENGTH(CLAIMDWHID)/36)>12 THEN FLOOR(LENGTH(CLAIMDWHID)/36)-1
+                ELSE
+                FLOOR(LENGTH(CLAIMDWHID)/36)
+                END
+                AS CNT
+                FROM
+                `geb-dwh-test.uat_geb_dwh_eu_act.fact_actuary`
+                WHERE
+                CLAIMDWHID LIKE '%|%'
+                ORDER BY
+                CNT DESC
+            """
+
+    client_l = bigquery.Client()
+    table = client_l.query(control_sql)
+    table = table.result().to_dataframe()
+    # table=table['CLAIMDWHID'].str.split('|', expand=False)
+    print(table['CLAIMDWHID'].str.split(
+        '|', expand=False).explode('CLAIMDWHID'))
+
+    with open("duplicates.csv", "a") as o:
+        o.write('Hello Tihomir')
+        table['CLAIMDWHID'].str.split('|', expand=False).explode(
+            'CLAIMDWHID').to_csv(o, header=True, index=True)
+
+
+if __name__ == '__main__':
+    control_dupl()
