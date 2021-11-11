@@ -13,3 +13,10 @@ print(Matrix)
 
 np_arr = np.ones((4, 6))
 print(np_arr)
+
+
+n = 3
+m = 4
+a = [0] * n
+for i in range(n):
+    a[i] = [0] * m
