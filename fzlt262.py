@@ -14,3 +14,7 @@ print(fact_of_fact(5))  # 288
 # fact_of_fact(5)  # 34560
 
 # fact_of_fact(6)  # 24883200
+
+
+def param_count(*args):
+    return len(args)
