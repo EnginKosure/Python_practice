@@ -35,3 +35,10 @@ print(list(times_two))  # [2, 4, 6, 8]
 
 my_list = [[j for j in range(3)] for i in range(4)]
 print(my_list)  # [[0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2]]
+
+
+flatten = [value
+           for sublist in my_list
+           for value in sublist]
+
+print(flatten)
