@@ -42,3 +42,13 @@ flatten = [value
            for value in sublist]
 
 print(flatten)
+
+
+if not sys.version_info > (2, 7):
+    print('congrats for still using a 10 year old version')
+elif not sys.version_info >= (3, 5):
+    print('Please upgrade')
+else:
+    # sys.version_info(major=3, minor=8, micro=3, releaselevel='final', serial=0)
+    print(sys.version_info)
+    print(sys.version_info >= (3, 8, 2))  # True
