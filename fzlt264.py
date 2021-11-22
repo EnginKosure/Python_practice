@@ -52,3 +52,10 @@ else:
     # sys.version_info(major=3, minor=8, micro=3, releaselevel='final', serial=0)
     print(sys.version_info)
     print(sys.version_info >= (3, 8, 2))  # True
+
+
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'b': 3, 'c': 4}
+merged = {**dict1, **dict2}
+
+print(merged)
