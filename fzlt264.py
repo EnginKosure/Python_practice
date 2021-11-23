@@ -59,3 +59,9 @@ dict2 = {'b': 3, 'c': 4}
 merged = {**dict1, **dict2}
 
 print(merged)
+
+
+a = 12
+b = 13
+a, b = b, a
+print(a, b)
