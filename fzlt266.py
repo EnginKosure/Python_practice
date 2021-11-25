@@ -15,3 +15,7 @@ print(jmespath.search('persons[*].name', persons))
 mylist = [1, 1, 2, 3, 4, 5, 5, 5, 6, 6]
 c = Counter(mylist)
 print(c)
+
+my_dict = {x: x**x for x in (2, 4, 6)}
+
+print(my_dict)
