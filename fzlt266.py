@@ -1,3 +1,4 @@
+from collections import Counter
 import jmespath
 persons = {
     "persons": [
@@ -9,3 +10,8 @@ persons = {
 print(jmespath.search('persons[*].age', persons))
 print(jmespath.search('persons[*].name', persons))
 # [38, 45, 14]
+
+
+mylist = [1, 1, 2, 3, 4, 5, 5, 5, 6, 6]
+c = Counter(mylist)
+print(c)
