@@ -23,7 +23,7 @@ print(f'{ten_billion:,}')
 cards = ('A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K')
 
 # extract ace, 2, 3 only
-# if you won't use the variable in the future, you can assign to _ underscore
+# if you won't use the variable in the future, you can assign to _underscore
 ace, two, three, *_ = cards
 print(ace, two, three)
 # A 2 3
