@@ -39,3 +39,18 @@ print(others)  # ['4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 ace, *numbers, J, Q, K = cards
 print(ace, numbers, J, Q, K)
 # A['2', '3', '4', '5', '6', '7', '8', '9', '10'] J Q K
+
+
+# For ~ Else
+grades = ['A', 'B', 'C', 'D', 'E', 'F']
+
+my_grade = 'A+'
+
+for grade in grades:
+    if grade == my_grade:
+        print('grade found')
+        break
+else:
+    print('grade not found')
+
+# grade not found
