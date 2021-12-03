@@ -1,3 +1,4 @@
+import heapq
 import time
 
 # for i in range(10):
@@ -54,3 +55,7 @@ else:
     print('grade not found')
 
 # grade not found
+
+
+grades = [5, 78, 6, 30, 91, 1005.2, 741, 1.9, 112, 809.5]
+print(heapq.nlargest(2, grades))
