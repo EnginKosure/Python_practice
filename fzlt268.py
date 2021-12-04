@@ -1,3 +1,4 @@
+from itertools import count
 import heapq
 import time
 
@@ -59,3 +60,9 @@ else:
 
 grades = [5, 78, 6, 30, 91, 1005.2, 741, 1.9, 112, 809.5]
 print(heapq.nlargest(2, grades))
+
+
+c = count()
+
+for i in range(20):
+    print(next(c), end="|")
