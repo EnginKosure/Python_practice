@@ -1,3 +1,4 @@
+import sh
 from itertools import count
 import heapq
 import time
@@ -66,3 +67,6 @@ c = count()
 
 for i in range(20):
     print(next(c), end="|")
+
+
+sh.google_chrome('http://google.com')
