@@ -88,7 +88,7 @@ console_handler = logging.StreamHandler()
 
 # STEP 4
 # set the logging format for your handler
-log_format = '%(asctime)s | %(levelname)s: %(message)s'
+log_format = '%(asctime)s | %(levelname)s | %(lineno)d: %(message)s'
 console_handler.setFormatter(logging.Formatter(log_format))
 
 # finally, we add the handler to the logger
