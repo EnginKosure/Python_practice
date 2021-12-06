@@ -73,11 +73,30 @@ for i in range(20):
 # sh.google_chrome('http://google.com')
 
 
-logging.warning('Watch out!')  # will print a message to the console
-logging.info('I told you so')  # will not print anything
-logging.basicConfig(filename='example.log',
-                    encoding='utf-8', level=logging.DEBUG)
-logging.debug('This message should go to the log file')
-logging.info('So should this')
-logging.warning('And this, too')
-logging.error('And non-ASCII stuff, too, like Øresund and Malmö')
+# STEP 1
+# create a logger object instance
+logger = logging.getLogger()
+
+# STEP 2
+# specifies the lowest severity for logging
+logger.setLevel(logging.ERROR)
+
+# STEP 3
+# set a destination for your logs or a "handler"
+# here, we choose to print on console (a consoler handler)
+console_handler = logging.StreamHandler()
+
+# STEP 4
+# set the logging format for your handler
+log_format = '%(asctime)s | %(levelname)s: %(message)s'
+console_handler.setFormatter(logging.Formatter(log_format))
+
+# finally, we add the handler to the logger
+logger.addHandler(console_handler)
+
+# start logging and show messages
+logger.debug('Here you have some information for debugging.')
+logger.info('Everything is normal. Relax!')
+logger.warning('Something unexpected but not important happend.')
+logger.error('Something unexpected and important happened.')
+logger.critical('OMG!!! A critical error happend and the code cannot run!')
