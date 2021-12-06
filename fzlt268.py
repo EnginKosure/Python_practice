@@ -1,4 +1,5 @@
-import sh
+import logging
+# import sh
 from itertools import count
 import heapq
 import time
@@ -69,4 +70,8 @@ for i in range(20):
     print(next(c), end="|")
 
 
-sh.google_chrome('http://google.com')
+# sh.google_chrome('http://google.com')
+
+
+logging.warning('Watch out!')  # will print a message to the console
+logging.info('I told you so')  # will not print anything
