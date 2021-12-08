@@ -2,3 +2,15 @@
 2021-12-07 00:10:25,870 | WARNING | 23: Something unexpected but not important happend.
 2021-12-07 00:10:25,870 | ERROR | 24: Something unexpected and important happened.
 2021-12-07 00:10:25,870 | CRITICAL | 25: OMG!!! A critical error happend and the code cannot run!
+2021-12-07 14:29:47,312 | INFO | 22: Everything is normal. Relax!
+2021-12-07 14:29:47,313 | WARNING | 23: Something unexpected but not important happend.
+2021-12-07 14:29:47,313 | ERROR | 24: Something unexpected and important happened.
+2021-12-07 14:29:47,313 | CRITICAL | 25: OMG!!! A critical error happend and the code cannot run!
+2021-12-07 14:31:07,121 | INFO | 22: Everything is normal. Relax!
+2021-12-07 14:31:07,121 | WARNING | 23: Something unexpected but not important happend.
+2021-12-07 14:31:07,121 | ERROR | 24: Something unexpected and important happened.
+2021-12-07 14:31:07,121 | CRITICAL | 25: OMG!!! A critical error happend and the code cannot run!
+2021-12-07 14:32:04,859 OO INFO | 22: Everything is normal. Relax!
+2021-12-07 14:32:04,859 OO WARNING | 23: Something unexpected but not important happend.
+2021-12-07 14:32:04,859 OO ERROR | 24: Something unexpected and important happened.
+2021-12-07 14:32:04,859 OO CRITICAL | 25: OMG!!! A critical error happend and the code cannot run!
