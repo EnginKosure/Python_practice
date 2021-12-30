@@ -19,3 +19,5 @@ def time(dct, people, walls):
 print(time(rate, rate['people'], rate['walls']))  # 22
 
 # time = lambda d,p,w: (d['minutes']*d['people']/d['walls'])*(w/p)
+# def time(dct, people, walls):
+#   return (dct['minutes'] * dct['people'] * walls) // (dct['walls'] * people)
